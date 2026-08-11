@@ -27,9 +27,10 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #475569;
+  color: #fff;
   margin: 0 10px;
   font-size: 13px;
+  text-transform: uppercase;
 }
 
 /* ===== HERO ===== */
