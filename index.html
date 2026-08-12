@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fatir Dev Studio | Timetable & Ecosystem</title>
+    <title>Fatir Dev Studio | Command Center & Ecosystem</title>
     <link
       rel="shortcut icon"
       href="/30Sep24 Anis Camera Studio Free Upload .png"
@@ -12,22 +12,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        --bg-dark: #090d16;
-        --bg-card: #111827;
-        --accent-primary: #38bdf8;
-        --accent-purple: #a855f7;
-        --text-main: #f9fafb;
-        --text-muted: #9ca3af;
-        --border-color: #1f2937;
-        --holiday-bg: rgba(239, 68, 68, 0.08);
-        --holiday-text: #f87171;
-        --success: #34d399;
+        --bg-main: #050811;
+        --bg-surface: #0d1322;
+        --bg-glass: rgba(15, 23, 42, 0.65);
+        --accent-cyan: #00f2ff;
+        --accent-purple: #9d4edd;
+        --accent-pink: #f72585;
+        --text-primary: #f8fafc;
+        --text-muted: #64748b;
+        --border-glow: rgba(0, 242, 255, 0.15);
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --success: #10b981;
       }
 
       * {
@@ -40,709 +41,861 @@
       }
 
       body {
-        background-color: var(--bg-dark);
-        color: var(--text-main);
+        background-color: var(--bg-main);
+        color: var(--text-primary);
         line-height: 1.6;
         overflow-x: hidden;
+        background-image:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(0, 242, 255, 0.05) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 85% 85%,
+            rgba(157, 78, 221, 0.06) 0%,
+            transparent 40%
+          );
+        background-attachment: fixed;
       }
 
-      /* NAVBAR */
+      /* CUSTOM NEON CURSOR */
+      .cursor-dot {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease;
+      }
+
+      .cursor-outline {
+        position: fixed;
+        width: 32px;
+        height: 32px;
+        border: 1px solid var(--accent-cyan);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        transition:
+          left 0.12s ease-out,
+          top 0.12s ease-out;
+      }
+
+      /* NAVIGATION */
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.25rem 5%;
-        background-color: rgba(9, 13, 22, 0.7);
-        backdrop-filter: blur(16px);
+        padding: 1.2rem 6%;
+        background: rgba(5, 8, 17, 0.75);
+        backdrop-filter: blur(20px);
         position: sticky;
         top: 0;
-        z-index: 100;
-        border-bottom: 1px solid var(--border-color);
+        z-index: 1000;
+        border-bottom: 1px solid var(--border-subtle);
       }
 
-      .logo {
-        font-size: 1.4rem;
-        font-weight: 700;
-        letter-spacing: -0.03em;
+      .logo-group {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-icon {
+        width: 38px;
+        height: 38px;
         background: linear-gradient(
-          to right,
-          var(--accent-primary),
+          135deg,
+          var(--accent-cyan),
           var(--accent-purple)
         );
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-family: "Space Grotesk", sans-serif;
+        color: #000;
+        box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+      }
+
+      .logo-text {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        background: linear-gradient(90deg, #fff, var(--text-muted));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
       }
 
       .nav-links a {
         color: var(--text-muted);
         text-decoration: none;
-        margin-left: 2rem;
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: color 0.2s ease;
+        font-weight: 600;
+        font-size: 0.85rem;
         text-transform: uppercase;
+        letter-spacing: 0.08em;
+        transition: all 0.3s ease;
       }
 
       .nav-links a:hover,
       .nav-links a.active {
-        color: var(--accent-primary);
+        color: var(--accent-cyan);
+        text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
       }
 
-      /* ADVANCED HERO SECTION */
-      .hero {
-        position: relative;
-        text-align: center;
-        padding: 7rem 1.5rem 5rem 1.5rem;
-        background:
-          radial-gradient(
-            circle at 50% -20%,
-            rgba(56, 189, 248, 0.15) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            circle at 10% 20%,
-            rgba(168, 85, 247, 0.05) 0%,
-            transparent 40%
-          );
+      /* HERO DASHBOARD */
+      .hero-section {
+        padding: 5rem 6% 3rem 6%;
+        max-width: 1400px;
+        margin: 0 auto;
       }
 
-      .badge {
+      .live-status-bar {
+        background: rgba(13, 19, 34, 0.8);
+        border: 1px solid var(--border-glow);
+        border-radius: 50px;
+        padding: 0.6rem 1.5rem;
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        background: rgba(56, 189, 248, 0.08);
-        border: 1px solid rgba(56, 189, 248, 0.2);
-        padding: 0.4rem 1rem;
-        border-radius: 99px;
-        color: var(--accent-primary);
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
       }
 
-      .badge span {
-        width: 6px;
-        height: 6px;
-        background-color: var(--accent-primary);
+      .pulse-indicator {
+        width: 10px;
+        height: 10px;
+        background: var(--accent-cyan);
         border-radius: 50%;
-        display: inline-block;
-        box-shadow: 0 0 8px var(--accent-primary);
+        box-shadow: 0 0 12px var(--accent-cyan);
+        animation: pulse-ring 1.8s infinite;
       }
 
-      .hero h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        letter-spacing: -0.04em;
-        line-height: 1.15;
-        max-width: 800px;
-        margin: 0 auto 1.5rem auto;
-        background: linear-gradient(to bottom, #ffffff 70%, var(--text-muted));
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(0, 242, 255, 0);
+        }
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(0, 242, 255, 0);
+        }
+      }
+
+      .live-text {
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.5rem, 5vw, 4.2rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          180deg,
+          #ffffff 40%,
+          rgba(255, 255, 255, 0.5)
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      .hero p {
+      .hero-subtitle {
         color: var(--text-muted);
-        font-size: 1.15rem;
-        max-width: 620px;
-        margin: 0 auto 2.5rem auto;
+        font-size: 1.1rem;
+        max-width: 680px;
+        margin-bottom: 3rem;
       }
 
-      .hero-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        background: linear-gradient(135deg, var(--accent-primary), #2563eb);
-        color: #ffffff;
-        padding: 0.8rem 1.8rem;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        text-decoration: none;
-        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-
-      .hero-cta:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 24px rgba(56, 189, 248, 0.35);
-      }
-
-      /* MAIN CONTAINER */
-      .container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 2rem 5rem 2rem;
-      }
-
-      /* NEW SECTION: METRICS & DASHBOARD CARDS */
-      .stats-container {
+      /* METRIC CARDS GRID */
+      .metrics-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.25rem;
-        margin-top: -1.5rem;
-        margin-bottom: 5rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+      }
+
+      .metric-card {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-subtle);
+        padding: 1.75rem;
+        border-radius: 16px;
         position: relative;
-        z-index: 10;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        transition: all 0.3s ease;
       }
 
-      .stat-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        padding: 1.5rem;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
+      .metric-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-3px);
       }
 
-      .stat-card .val {
-        font-size: 1.75rem;
+      .metric-value {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2.2rem;
         font-weight: 700;
-        color: var(--text-main);
+        color: #fff;
+        margin-bottom: 0.25rem;
       }
 
-      .stat-card .label {
-        font-size: 0.8rem;
+      .metric-label {
         color: var(--text-muted);
+        font-size: 0.8rem;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 500;
+        letter-spacing: 0.06em;
+        font-weight: 600;
       }
 
-      /* SECTION DESIGNATIONS */
-      .section-header {
+      /* FILTER & CONTROLS */
+      .controls-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
         margin-bottom: 2rem;
       }
 
-      .section-header h2 {
-        font-size: 1.75rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+      .day-filters {
         display: flex;
-        align-items: center;
-        gap: 0.75rem;
+        gap: 0.5rem;
+        background: var(--bg-surface);
+        padding: 0.4rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-subtle);
       }
 
-      .section-header h2::before {
-        content: "";
-        width: 4px;
-        height: 24px;
-        background: linear-gradient(
-          to bottom,
-          var(--accent-primary),
-          var(--accent-purple)
-        );
-        border-radius: 4px;
-        display: inline-block;
-      }
-
-      .section-header p {
+      .filter-btn {
+        background: transparent;
+        border: none;
         color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-top: 0.25rem;
-        padding-left: 1.1rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.8rem;
+        transition: all 0.25 ease;
       }
 
-      /* TIMETABLE ENGINE CONTAINER */
-      .timetable-box {
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--accent-cyan);
+        color: #000;
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+      }
+
+      /* BENTO GRID TIMETABLE CARDS */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 1.5rem;
         margin-bottom: 6rem;
       }
 
-      .table-wrapper {
-        overflow-x: auto;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        text-align: center;
-        font-size: 0.88rem;
-      }
-
-      th {
-        background-color: rgba(9, 13, 22, 0.5);
-        color: var(--text-main);
-        font-weight: 600;
-        padding: 1.2rem 1rem;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 0.06em;
-        border-bottom: 1px solid var(--border-color);
-      }
-
-      td {
-        padding: 1.25rem 1rem;
-        border-bottom: 1px solid var(--border-color);
-        vertical-align: middle;
-      }
-
-      tr:last-child td {
-        border-bottom: none;
-      }
-
-      tr:hover td {
-        background-color: rgba(31, 41, 55, 0.4);
-      }
-
-      .b-name {
-        font-weight: 600;
-        color: var(--text-main);
-        background-color: rgba(9, 13, 22, 0.15);
-        border-right: 1px solid var(--border-color);
-      }
-
-      td span.small {
-        display: block;
-        font-size: 0.75rem;
-        color: var(--accent-primary);
-        margin-top: 0.35rem;
-        font-weight: 500;
-        opacity: 0.9;
-      }
-
-      .holiday {
-        color: var(--holiday-text);
-        background-color: var(--holiday-bg);
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
-
-      .total {
-        font-weight: 600;
-        color: var(--success);
-        background-color: rgba(52, 211, 153, 0.02);
-        border-left: 1px solid var(--border-color);
-      }
-
-      /* CONTACT GRID CONFIGURATION */
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.25rem;
-      }
-
-      .box {
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        padding: 1.5rem;
-        border-radius: 12px;
+      .course-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        padding: 1.75rem;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        justify-content: space-between;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      .box b {
+      .course-card:hover {
+        border-color: rgba(0, 242, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .course-card.is-active {
+        border: 2px solid var(--accent-cyan);
+        background: linear-gradient(
+          145deg,
+          rgba(13, 19, 34, 0.9),
+          rgba(0, 242, 255, 0.08)
+        );
+        box-shadow: 0 0 30px rgba(0, 242, 255, 0.25);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .batch-tag {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent-cyan);
+        background: rgba(0, 242, 255, 0.1);
+        padding: 0.3rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 242, 255, 0.2);
+      }
+
+      .live-now-badge {
+        background: var(--accent-pink);
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 800;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        animation: blink 1.2s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+
+      .course-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1.25rem;
+        line-height: 1.3;
+      }
+
+      .schedule-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .schedule-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.82rem;
+        padding: 0.4rem 0.6rem;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .schedule-row.active-day {
+        background: rgba(0, 242, 255, 0.15);
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .day-name {
         color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .schedule-row.active-day .day-name {
+        color: var(--accent-cyan);
+      }
+
+      .time-slot {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+      }
+
+      .card-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .weekly-load {
+        color: var(--success);
+        font-weight: 700;
+      }
+
+      /* BREAK DIVIDER CARD */
+      .break-card {
+        grid-column: 1 / -1;
+        background: linear-gradient(
+          90deg,
+          rgba(168, 85, 247, 0.1),
+          rgba(0, 242, 255, 0.05)
+        );
+        border: 1px dashed var(--accent-purple);
+        border-radius: 12px;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--accent-purple);
+        text-transform: uppercase;
+      }
+
+      /* CONTACT HUB */
+      .contact-section {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 24px;
+        padding: 3rem;
+        margin-bottom: 5rem;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .contact-item {
+        background: var(--bg-main);
+        border: 1px solid var(--border-subtle);
+        padding: 1.5rem;
+        border-radius: 14px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+        border-color: var(--accent-cyan);
+      }
+
+      .contact-item label {
         font-size: 0.75rem;
         text-transform: uppercase;
+        color: var(--text-muted);
         letter-spacing: 0.05em;
+        display: block;
+        margin-bottom: 0.4rem;
       }
 
-      .box a,
-      .box p {
-        color: var(--text-main);
+      .contact-item a,
+      .contact-item p {
+        color: #fff;
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 0.95rem;
-        transition: color 0.2s ease;
       }
 
-      .box a:hover {
-        color: var(--accent-primary);
+      .contact-item a:hover {
+        color: var(--accent-cyan);
       }
 
-      /* FOOTER */
       .footer {
         text-align: center;
-        padding: 3rem 1rem;
+        padding: 2.5rem;
         color: var(--text-muted);
         font-size: 0.85rem;
-        border-top: 1px solid var(--border-color);
-        background-color: rgba(9, 13, 22, 0.5);
-      }
-
-      /* RESPONSIVE LAYOUT MECHANICS */
-      @media (max-width: 1024px) {
-        .stats-container {
-          grid-template-columns: repeat(2, 1fr);
-          margin-top: 0;
-        }
+        border-top: 1px solid var(--border-subtle);
       }
 
       @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 2.5rem;
-        }
         .navbar {
-          padding: 1rem 1.5rem;
+          padding: 1rem 4%;
         }
         .nav-links {
           display: none;
         }
-        .container {
-          padding: 0 1rem 3rem 1rem;
+        .hero-section {
+          padding: 3rem 4% 2rem 4%;
         }
-        .stats-container {
+        .bento-grid {
           grid-template-columns: 1fr;
         }
-        th,
-        td {
-          padding: 1rem 0.6rem;
-          font-size: 0.8rem;
-        }
-      }
-
-      /* Neon Cursor */
-      .cursor {
-        position: fixed;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #00ffee;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        z-index: 9999;
-
-        box-shadow:
-          0 0 5px #00ffee,
-          0 0 10px #00ffee,
-          0 0 20px #00ffee,
-          0 0 40px #00ffee,
-          0 0 80px #00ffee;
-
-        animation: pulse 1s infinite alternate;
-      }
-
-      @keyframes pulse {
-        from {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 0.9;
-        }
-        to {
-          transform: translate(-50%, -50%) scale(1.4);
-          opacity: 1;
-        }
-      }
-      td {
-        text-transform: uppercase;
       }
     </style>
   </head>
 
   <body>
-    <div class="cursor"></div>
-    <div class="navbar">
-      <div class="logo">Fatir Dev Studio</div>
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo-group">
+        <div class="logo-icon">F</div>
+        <div class="logo-text">Fatir Dev Studio</div>
+      </div>
       <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#schedule-section" class="active">Timetable</a>
-        <a href="#contact-section">Contact</a>
+        <a href="#">Dashboard</a>
+        <a href="#schedule" class="active">Timetable</a>
+        <a href="#hub">Hub Operations</a>
       </div>
-    </div>
+    </nav>
 
-    <div class="hero">
-      <div class="badge"><span></span>Fatir Dev Studio</div>
-      <h1>Advanced Development & AI Academy</h1>
-      <p>
-        Accelerating technical mastery through synchronized scheduling
-        parameters across Full Stack Development, Agentic AI, UI/UX Systems, and
-        Cyber Security cohorts.
+    <!-- HERO SECTION -->
+    <main class="hero-section">
+      <div class="live-status-bar">
+        <div class="pulse-indicator"></div>
+        <span class="live-text" id="live-banner-text"
+          >Checking Studio Activity...</span
+        >
+      </div>
+
+      <h1 class="hero-title">Academy Command Center</h1>
+      <p class="hero-subtitle">
+        Real-time synchronized schedule parameters for Full Stack, AI
+        Engineering, and Cyber Security tracks.
       </p>
-      <a href="#schedule-section" class="hero-cta"
-        >View Live Studio Timetable</a
-      >
-    </div>
 
-    <div class="container">
-      <div class="stats-container">
-        <div
-          class="stat-card"
-          style="border-top: 2px solid var(--accent-primary)"
-        >
-          <div class="val">04</div>
-          <div class="label">Core Specializations</div>
+      <!-- METRIC HIGHLIGHTS -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value" id="total-weekly-load">--h --m</div>
+          <div class="metric-label">Total Teaching Hours / Week</div>
         </div>
-        <div
-          class="stat-card"
-          style="border-top: 2px solid var(--accent-purple)"
-        >
-          <div class="val">AI Based Courses</div>
-          <div class="label">Dedicated Track</div>
+        <div class="metric-card">
+          <div class="metric-value">08</div>
+          <div class="metric-label">Active Training Tracks</div>
         </div>
-        <div class="stat-card" style="border-top: 2px solid var(--success)">
-          <div class="val">Mon - Fri</div>
-          <div class="label">Operational Cadence</div>
+        <div class="metric-card">
+          <div class="metric-value">Mon - Fri</div>
+          <div class="metric-label">Operational Cadence</div>
         </div>
-        <div class="stat-card" style="border-top: 2px solid #f59e0b">
-          <div class="val">Dynamic</div>
-          <div class="label">Runtime Metrics</div>
+        <div class="metric-card">
+          <div class="metric-value" id="current-day-name">--</div>
+          <div class="metric-label">Today's Schedule</div>
         </div>
       </div>
 
-      <div id="schedule-section" class="section-header">
-        <h2>Studio Training Schedule</h2>
-        <p>
-          Active lecture intervals, core engineering tracks, and live production
-          lab runtimes.
+      <!-- CONTROLS & FILTERS -->
+      <div id="schedule" class="controls-bar">
+        <h2 style="font-family: &quot;Space Grotesk&quot;, sans-serif">
+          Studio Course Matrix
+        </h2>
+        <div class="day-filters">
+          <button class="filter-btn active" onclick="filterDay('ALL')">
+            ALL DAYS
+          </button>
+          <button class="filter-btn" onclick="filterDay('MON')">MON</button>
+          <button class="filter-btn" onclick="filterDay('TUE')">TUE</button>
+          <button class="filter-btn" onclick="filterDay('WED')">WED</button>
+          <button class="filter-btn" onclick="filterDay('THU')">THU</button>
+          <button class="filter-btn" onclick="filterDay('FRI')">FRI</button>
+        </div>
+      </div>
+
+      <!-- BENTO GRID TIMETABLE -->
+      <div class="bento-grid" id="course-grid">
+        <!-- Courses dynamically rendered via JS -->
+      </div>
+
+      <!-- OPERATIONS HUB -->
+      <div id="hub" class="contact-section">
+        <h2 style="font-family: &quot;Space Grotesk&quot;, sans-serif">
+          Operations & Support Hub
+        </h2>
+        <p style="color: var(--text-muted); margin-top: 0.25rem">
+          Connect directly for studio desks, enrollment verification, and
+          technical desk support.
         </p>
-      </div>
 
-      <div class="timetable-box">
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th
-                  style="text-align: left; padding-left: 1.5rem; width: 240px"
-                >
-                  BATCH NAME
-                </th>
-                <th>MON</th>
-                <th>TUE</th>
-                <th>WED</th>
-                <th>THU</th>
-                <th>FRI</th>
-                <th>SAT</th>
-                <th>SUN</th>
-                <th style="width: 180px">TOTAL HOURS / WEEK</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  Python Programming
-                </td>
-                <td>3:50 - 4:30</td>
-                <td>3:50 - 4:30</td>
-                <td>3:50 - 4:30</td>
-                <td>3:50 - 4:30</td>
-                <td>3:50 - 4:30</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  MID-NIGHT DEV <br />
-                  (JavaScript Projects)
-                </td>
-                <td>4:30 - 5:10</td>
-                <td>4:30 - 5:10</td>
-                <td>4:30 - 5:10</td>
-                <td>4:30 - 5:10</td>
-                <td>4:30 - 5:10</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-              <tr>
-                <th colspan="9">NAMAZ BREAK</th>
-              </tr>
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  Full Stack Dev With AI <br />
-                  (MID EVENING BATCH)
-                </td>
-                <td>5:30 - 6:10</td>
-                <td>5:30 - 6:10</td>
-                <td>5:30 - 6:10</td>
-                <td>5:30 - 6:10</td>
-                <td>5:30 - 6:10</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  Full Stack Dev With AI <br />
-                  (LATE EVENING BATCH)
-                </td>
-                <td>6:10 - 6:50</td>
-                <td>6:10 - 6:50</td>
-                <td>6:10 - 6:50</td>
-                <td>6:10 - 6:50</td>
-                <td>6:10 - 6:50</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-              <tr>
-                <th colspan="9">NAMAZ BREAK</th>
-              </tr>
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  LATE-NIGHT DEV
-                  <br />
-                  JavaScript Programming
-                </td>
-                <td>7:10 - 7:40</td>
-                <td>7:10 - 7:40</td>
-                <td>7:10 - 7:40</td>
-                <td>7:10 - 7:40</td>
-                <td>7:10 - 7:40</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  FULL STACK DEV (6 MONTHS)
-                </td>
-                <td>7:40 - 9:00</td>
-                <td>7:40 - 9:00</td>
-                <td>7:40 - 8:20</td>
-                <td>7:40 - 8:20</td>
-                <td>7:40 - 8:20</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  AGENTIC AI
-                </td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td>8:20 - 09:00</td>
-                <td>8:20 - 09:00</td>
-                <td>8:20 - 09:00</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-
-              <tr>
-                <td
-                  class="b-name"
-                  style="text-align: left; padding-left: 1.5rem"
-                >
-                  Full Stack Dev With AI <br />
-                  (MID NIGHT BATCH)
-                </td>
-                <td>9:30 - 10:10</td>
-                <td>9:30 - 10:10</td>
-                <td>9:30 - 10:10</td>
-                <td>9:30 - 10:10</td>
-                <td>9:30 - 10:10</td>
-                <td class="holiday">Holiday</td>
-                <td class="holiday">Holiday</td>
-                <td class="total"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div id="contact-section" class="section-header">
-        <h2>Studio Operations Hub</h2>
-        <p>
-          Reach out directly for class registry, desk configurations, or
-          administrative assistance.
-        </p>
-      </div>
-
-      <div class="contact">
         <div class="contact-grid">
-          <div class="box">
-            <b>HQ Institute</b>
+          <div class="contact-item">
+            <label>HQ Institute</label>
             <p>Fatir Dev Studio</p>
           </div>
-          <div class="box">
-            <b>Phone Desk</b>
+          <div class="contact-item">
+            <label>Direct Phone</label>
             <a href="tel:+923348122659">0334-8122659</a>
           </div>
-          <div class="box">
-            <b>WhatsApp</b>
+          <div class="contact-item">
+            <label>WhatsApp Desk</label>
             <a href="https://wa.me/923348122659" target="_blank"
-              >Chat on WhatsApp</a
+              >Chat Support</a
             >
           </div>
-          <div class="box">
-            <b>Email Support</b>
-            <a href="mailto:fatirdevstudio@gmail.com" style="font-size: 14px"
+          <div class="contact-item">
+            <label>Email Desk</label>
+            <a href="mailto:fatirdevstudio@gmail.com"
               >fatirdevstudio@gmail.com</a
             >
           </div>
-          <div class="box">
-            <b>Web Portal</b>
+          <div class="contact-item">
+            <label>Portal</label>
             <a href="https://fatirdevstudio.netlify.app" target="_blank"
-              >Visit Website</a
+              >fatirdevstudio.netlify.app</a
             >
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer">© 2026 Fatir Dev Studio | All Rights Reserved</div>
+    </main>
+
+    <footer class="footer">
+      © 2026 Fatir Dev Studio | Next-Gen Technical Academy
+    </footer>
 
     <script>
-      function getDuration(start, end) {
-        let [sh, sm] = start.split(":").map(Number);
-        let [eh, em] = end.split(":").map(Number);
-        return eh * 60 + em - (sh * 60 + sm);
+      // COURSE DATA STRUCTURE
+      const courseData = [
+        {
+          id: 1,
+          name: "Python Programming",
+          tag: "CORE TRACK",
+          schedule: {
+            MON: "3:50 - 4:30",
+            TUE: "3:50 - 4:30",
+            WED: "3:50 - 4:30",
+            THU: "3:50 - 4:30",
+            FRI: "3:50 - 4:30",
+          },
+        },
+        {
+          id: 2,
+          name: "MID-NIGHT DEV (JS Projects)",
+          tag: "PROJECTS BATCH",
+          schedule: {
+            MON: "4:30 - 5:10",
+            TUE: "4:30 - 5:10",
+            WED: "4:30 - 5:10",
+            THU: "4:30 - 5:10",
+            FRI: "4:30 - 5:10",
+          },
+        },
+        { isBreak: true, title: "🕌 NAMAZ BREAK" },
+        {
+          id: 3,
+          name: "Full Stack Dev With AI (Mid Evening)",
+          tag: "AI & FULL STACK",
+          schedule: {
+            MON: "5:30 - 6:10",
+            TUE: "5:30 - 6:10",
+            WED: "5:30 - 6:10",
+            THU: "5:30 - 6:10",
+            FRI: "5:30 - 6:10",
+          },
+        },
+        {
+          id: 4,
+          name: "Full Stack Dev With AI (Late Evening)",
+          tag: "AI & FULL STACK",
+          schedule: {
+            MON: "6:10 - 6:50",
+            TUE: "6:10 - 6:50",
+            WED: "6:10 - 6:50",
+            THU: "6:10 - 6:50",
+            FRI: "6:10 - 6:50",
+          },
+        },
+        { isBreak: true, title: "🕌 NAMAZ BREAK" },
+        {
+          id: 5,
+          name: "LATE-NIGHT DEV (JS Programming)",
+          tag: "CORE JS",
+          schedule: {
+            MON: "7:10 - 7:50",
+            TUE: "7:10 - 7:50",
+            WED: "7:10 - 7:50",
+            THU: "7:10 - 7:50",
+            FRI: "7:10 - 7:50",
+          },
+        },
+        {
+          id: 6,
+          name: "FULL STACK DEV (6 Months Track)",
+          tag: "FLAGSHIP COHORT",
+          schedule: {
+            MON: "7:50 - 8:40",
+            TUE: "7:50 - 8:40",
+            WED: "7:50 - 8:40",
+            THU: "7:50 - 8:40",
+            FRI: "7:50 - 8:40",
+          },
+        },
+        {
+          id: 7,
+          name: "AGENTIC AI SPECIALIZATION",
+          tag: "ADVANCED AI",
+          schedule: {
+            WED: "10:15 - 11:15",
+            THU: "10:15 - 11:15",
+            FRI: "10:15 - 11:15",
+          },
+        },
+        {
+          id: 8,
+          name: "Full Stack Dev With AI (Mid Night)",
+          tag: "NIGHT COHORT",
+          schedule: {
+            MON: "9:30 - 10:10",
+            TUE: "9:30 - 10:10",
+            WED: "9:30 - 10:10",
+            THU: "9:30 - 10:10",
+            FRI: "9:30 - 10:10",
+          },
+        },
+      ];
+
+      // TIME UTILITIES
+      function parseTimeToMinutes(timeStr) {
+        let [h, m] = timeStr.split(":").map(Number);
+        if (h >= 1 && h <= 11) h += 12; // PM adjustment
+        return h * 60 + m;
       }
 
-      document.querySelectorAll("table tbody tr").forEach((row) => {
-        let totalMinutes = 0;
+      function calculateWeeklyMinutes(schedule) {
+        let total = 0;
+        Object.values(schedule).forEach((timeRange) => {
+          let [start, end] = timeRange.split("-").map((s) => s.trim());
+          total += parseTimeToMinutes(end) - parseTimeToMinutes(start);
+        });
+        return total;
+      }
 
-        row.querySelectorAll("td").forEach((cell) => {
-          let text = cell.childNodes[0]?.nodeValue?.trim();
-          if (!text || !text.includes("-")) return;
+      // RENDER CARDS
+      const gridContainer = document.getElementById("course-grid");
+      let selectedDay = "ALL";
 
-          let [start, end] = text.split(" - ");
-          if (start && end) {
-            totalMinutes += getDuration(start, end);
+      function renderGrid() {
+        gridContainer.innerHTML = "";
+        let grandTotalMinutes = 0;
+
+        const now = new Date();
+        const daysMap = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+        const currentDay = daysMap[now.getDay()];
+        const currentMins = now.getHours() * 60 + now.getMinutes();
+
+        document.getElementById("current-day-name").textContent = currentDay;
+
+        let activeCourseName = null;
+
+        courseData.forEach((item) => {
+          if (item.isBreak) {
+            if (selectedDay === "ALL") {
+              const breakEl = document.createElement("div");
+              breakEl.className = "break-card";
+              breakEl.innerText = item.title;
+              gridContainer.appendChild(breakEl);
+            }
+            return;
           }
+
+          const weeklyMins = calculateWeeklyMinutes(item.schedule);
+          grandTotalMinutes += weeklyMins;
+
+          let isLiveNow = false;
+          if (item.schedule[currentDay]) {
+            let [start, end] = item.schedule[currentDay]
+              .split("-")
+              .map((s) => s.trim());
+            if (
+              currentMins >= parseTimeToMinutes(start) &&
+              currentMins < parseTimeToMinutes(end)
+            ) {
+              isLiveNow = true;
+              activeCourseName = item.name;
+            }
+          }
+
+          const card = document.createElement("div");
+          card.className = `course-card ${isLiveNow ? "is-active" : ""}`;
+
+          let scheduleRowsHTML = "";
+          const daysToDisplay =
+            selectedDay === "ALL"
+              ? ["MON", "TUE", "WED", "THU", "FRI"]
+              : [selectedDay];
+
+          daysToDisplay.forEach((d) => {
+            const slot = item.schedule[d];
+            const isTodayRow = d === currentDay;
+            if (slot) {
+              scheduleRowsHTML += `
+                <div class="schedule-row ${isTodayRow ? "active-day" : ""}">
+                  <span class="day-name">${d}</span>
+                  <span class="time-slot">${slot}</span>
+                </div>
+              `;
+            }
+          });
+
+          const hours = Math.floor(weeklyMins / 60);
+          const mins = weeklyMins % 60;
+
+          card.innerHTML = `
+            <div>
+              <div class="card-header">
+                <span class="batch-tag">${item.tag}</span>
+                ${isLiveNow ? `<span class="live-now-badge">🔴 LIVE NOW</span>` : ""}
+              </div>
+              <h3 class="course-title">${item.name}</h3>
+              <div class="schedule-list">
+                ${scheduleRowsHTML || '<div class="schedule-row"><span class="day-name">No Session</span></div>'}
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>Weekly Workload</span>
+              <span class="weekly-load">${hours}h ${mins}m</span>
+            </div>
+          `;
+
+          gridContainer.appendChild(card);
         });
 
-        let hours = Math.floor(totalMinutes / 60);
-        let minutes = totalMinutes % 60;
+        // Update Total Weekly Load Card
+        const grandHours = Math.floor(grandTotalMinutes / 60);
+        const grandMins = grandTotalMinutes % 60;
+        document.getElementById("total-weekly-load").textContent =
+          `${grandHours}h ${grandMins}m`;
 
-        let totalCell = row.querySelector(".total");
-        if (totalCell) {
-          totalCell.textContent = `${hours}h ${minutes}m`;
+        // Update Live Status Banner
+        const bannerText = document.getElementById("live-banner-text");
+        if (activeCourseName) {
+          bannerText.innerHTML = `LIVE SESSION IN PROGRESS: <strong style="color: var(--accent-cyan)">${activeCourseName}</strong>`;
+        } else {
+          bannerText.textContent = `STUDIO STANDBY • NEXT SESSIONS SYNCHRONIZED FOR ${currentDay}`;
         }
-      });
-    </script>
+      }
 
-    <script>
-      const cursor = document.querySelector(".cursor");
+      function filterDay(day) {
+        selectedDay = day;
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.innerText.includes(day));
+        });
+        renderGrid();
+      }
 
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
+      // INITIAL RENDER & INTERVAL
+      renderGrid();
+      setInterval(renderGrid, 30000);
+
+      // CURSOR SCRIPT
+      const dot = document.querySelector(".cursor-dot");
+      const outline = document.querySelector(".cursor-outline");
+
+      window.addEventListener("mousemove", (e) => {
+        dot.style.left = e.clientX + "px";
+        dot.style.top = e.clientY + "px";
+        outline.style.left = e.clientX + "px";
+        outline.style.top = e.clientY + "px";
       });
     </script>
   </body>

@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fatir Dev Studio | Timetable & Ecosystem</title>
+    <link
+      rel="shortcut icon"
+      href="/30Sep24 Anis Camera Studio Free Upload .png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-dark: #090d16;
+        --bg-card: #111827;
+        --accent-primary: #38bdf8;
+        --accent-purple: #a855f7;
+        --text-main: #f9fafb;
+        --text-muted: #9ca3af;
+        --border-color: #1f2937;
+        --holiday-bg: rgba(239, 68, 68, 0.08);
+        --holiday-text: #f87171;
+        --success: #34d399;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        scroll-behavior: smooth;
+        cursor: none;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 5%;
+        background-color: rgba(9, 13, 22, 0.7);
+        backdrop-filter: blur(16px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .logo {
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        background: linear-gradient(
+          to right,
+          var(--accent-primary),
+          var(--accent-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        margin-left: 2rem;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+        text-transform: uppercase;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--accent-primary);
+      }
+
+      /* HERO SECTION */
+      .hero {
+        position: relative;
+        text-align: center;
+        padding: 7rem 1.5rem 5rem 1.5rem;
+        background:
+          radial-gradient(
+            circle at 50% -20%,
+            rgba(56, 189, 248, 0.15) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(168, 85, 247, 0.05) 0%,
+            transparent 40%
+          );
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        padding: 0.4rem 1rem;
+        border-radius: 99px;
+        color: var(--accent-primary);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .badge span {
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent-primary);
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 8px var(--accent-primary);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.15;
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+        background: linear-gradient(to bottom, #ffffff 70%, var(--text-muted));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        color: var(--text-muted);
+        font-size: 1.15rem;
+        max-width: 620px;
+        margin: 0 auto 2.5rem auto;
+      }
+
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(135deg, var(--accent-primary), #2563eb);
+        color: #ffffff;
+        padding: 0.8rem 1.8rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .hero-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 24px rgba(56, 189, 248, 0.35);
+      }
+
+      /* MAIN CONTAINER */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem 5rem 2rem;
+      }
+
+      /* METRICS & DASHBOARD CARDS */
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+        margin-top: -1.5rem;
+        margin-bottom: 5rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 1.5rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .stat-card .val {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+
+      .stat-card .label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+      }
+
+      /* SECTION DESIGNATIONS */
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .section-header h2::before {
+        content: "";
+        width: 4px;
+        height: 24px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent-primary),
+          var(--accent-purple)
+        );
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      .section-header p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-top: 0.25rem;
+        padding-left: 1.1rem;
+      }
+
+      /* TIMETABLE ENGINE CONTAINER */
+      .timetable-box {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        margin-bottom: 6rem;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        font-size: 0.88rem;
+      }
+
+      th {
+        background-color: rgba(9, 13, 22, 0.5);
+        color: var(--text-main);
+        font-weight: 600;
+        padding: 1.2rem 1rem;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      td {
+        padding: 1.25rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+        vertical-align: middle;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      tr:hover td {
+        background-color: rgba(31, 41, 55, 0.4);
+      }
+
+      .b-name {
+        font-weight: 600;
+        color: var(--text-main);
+        background-color: rgba(9, 13, 22, 0.15);
+        border-right: 1px solid var(--border-color);
+      }
+
+      td span.small {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--accent-primary);
+        margin-top: 0.35rem;
+        font-weight: 500;
+        opacity: 0.9;
+      }
+
+      .holiday {
+        color: var(--holiday-text);
+        background-color: var(--holiday-bg);
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .total {
+        font-weight: 600;
+        color: var(--success);
+        background-color: rgba(52, 211, 153, 0.02);
+        border-left: 1px solid var(--border-color);
+      }
+
+      /* ACTIVE LECTURE HIGHLIGHT STYLES */
+      tr.active-lecture td {
+        background-color: rgba(56, 189, 248, 0.12) !important;
+        color: #ffffff !important;
+      }
+
+      tr.active-lecture td.active-cell {
+        background-color: rgba(56, 189, 248, 0.28) !important;
+        border: 2px solid var(--accent-primary);
+        box-shadow: inset 0 0 12px rgba(56, 189, 248, 0.4);
+        font-weight: 700;
+        color: #ffffff !important;
+        position: relative;
+      }
+
+      .live-badge {
+        display: inline-block;
+        background: #ef4444;
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin-left: 6px;
+        animation: blink 1.2s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+
+      /* CONTACT GRID CONFIGURATION */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .box {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 1.5rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .box b {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .box a,
+      .box p {
+        color: var(--text-main);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+      }
+
+      .box a:hover {
+        color: var(--accent-primary);
+      }
+
+      /* FOOTER */
+      .footer {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        border-top: 1px solid var(--border-color);
+        background-color: rgba(9, 13, 22, 0.5);
+      }
+
+      /* RESPONSIVE LAYOUT MECHANICS */
+      @media (max-width: 1024px) {
+        .stats-container {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .navbar {
+          padding: 1rem 1.5rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        .container {
+          padding: 0 1rem 3rem 1rem;
+        }
+        .stats-container {
+          grid-template-columns: 1fr;
+        }
+        th,
+        td {
+          padding: 1rem 0.6rem;
+          font-size: 0.8rem;
+        }
+      }
+
+      /* Neon Cursor */
+      .cursor {
+        position: fixed;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #00ffee;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+
+        box-shadow:
+          0 0 5px #00ffee,
+          0 0 10px #00ffee,
+          0 0 20px #00ffee,
+          0 0 40px #00ffee,
+          0 0 80px #00ffee;
+
+        animation: pulse 1s infinite alternate;
+      }
+
+      @keyframes pulse {
+        from {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.9;
+        }
+        to {
+          transform: translate(-50%, -50%) scale(1.4);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cursor"></div>
+    <div class="navbar">
+      <div class="logo">Fatir Dev Studio</div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#schedule-section" class="active">Timetable</a>
+        <a href="#contact-section">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="badge"><span></span>Fatir Dev Studio</div>
+      <h1>Advanced Development & AI Academy</h1>
+      <p>
+        Accelerating technical mastery through synchronized scheduling
+        parameters across Full Stack Development, Agentic AI, UI/UX Systems, and
+        Cyber Security cohorts.
+      </p>
+      <a href="#schedule-section" class="hero-cta"
+        >View Live Studio Timetable</a
+      >
+    </div>
+
+    <div class="container">
+      <div class="stats-container">
+        <div
+          class="stat-card"
+          style="border-top: 2px solid var(--accent-primary)"
+        >
+          <div class="val">04</div>
+          <div class="label">Core Specializations</div>
+        </div>
+        <div
+          class="stat-card"
+          style="border-top: 2px solid var(--accent-purple)"
+        >
+          <div class="val">AI Based Courses</div>
+          <div class="label">Dedicated Track</div>
+        </div>
+        <div class="stat-card" style="border-top: 2px solid var(--success)">
+          <div class="val" id="total-weekly-hours">0h 0m</div>
+          <div class="label">Total Teaching / Week</div>
+        </div>
+        <div class="stat-card" style="border-top: 2px solid #f59e0b">
+          <div class="val">Mon - Fri</div>
+          <div class="label">Operational Cadence</div>
+        </div>
+      </div>
+
+      <div id="schedule-section" class="section-header">
+        <h2>Studio Training Schedule</h2>
+        <p>
+          Active lecture intervals, core engineering tracks, and live production
+          lab runtimes.
+        </p>
+      </div>
+
+      <div class="timetable-box">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th
+                  style="text-align: left; padding-left: 1.5rem; width: 240px"
+                >
+                  BATCH NAME
+                </th>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th>SAT</th>
+                <th>SUN</th>
+                <th style="width: 180px">TOTAL HOURS / WEEK</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  Python Programming
+                </td>
+                <td>3:50 - 4:30</td>
+                <td>3:50 - 4:30</td>
+                <td>3:50 - 4:30</td>
+                <td>3:50 - 4:30</td>
+                <td>3:50 - 4:30</td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  MID-NIGHT DEV <br />
+                  (JavaScript Projects)
+                </td>
+                <td>4:30 - 5:10</td>
+                <td>4:30 - 5:10</td>
+                <td>4:30 - 5:10</td>
+                <td>4:30 - 5:10</td>
+                <td>4:30 - 5:10</td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+              <tr>
+                <th colspan="9">NAMAZ BREAK</th>
+              </tr>
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  Full Stack Dev With AI <br />
+                  (MID EVENING BATCH)
+                </td>
+                <td>5:30 - 6:10</td>
+                <td>5:30 - 6:10</td>
+                <td>5:30 - 6:10</td>
+                <td>5:30 - 6:10</td>
+                <td>5:30 - 6:10</td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  Full Stack Dev With AI <br />
+                  (LATE EVENING BATCH)
+                </td>
+                <td>6:10 - 6:50</td>
+                <td>6:10 - 6:50</td>
+                <td>6:10 - 6:50</td>
+                <td>6:10 - 6:50</td>
+                <td>6:10 - 6:50</td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+              <tr>
+                <th colspan="9">NAMAZ BREAK</th>
+              </tr>
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  LATE-NIGHT DEV
+                  <br />
+                  JavaScript Programming
+                </td>
+                <td>7:10 - 7:50</td>
+                <td>7:10 - 7:50</td>
+                <td>7:10 - 7:50</td>
+                <td>7:10 - 7:50</td>
+                <td>7:10 - 7:50</td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  FULL STACK DEV (6 MONTHS)
+                </td>
+                <td>7:50 - 8:40</td>
+                <td>7:50 - 8:40</td>
+                <td>7:50 - 8:40</td>
+                <td>7:50 - 8:40</td>
+                <td>7:50 - 8:40</td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  AGENTIC AI
+                </td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td>10:30 - 11:30</td>
+                <td>10:30 - 11:30</td>
+                <td>10:30 - 11:30</td>
+
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+
+              <tr>
+                <td
+                  class="b-name"
+                  style="text-align: left; padding-left: 1.5rem"
+                >
+                  Full Stack Dev With AI <br />
+                  (MID NIGHT BATCH)
+                </td>
+                <td>9:30 - 10:10</td>
+                <td>9:30 - 10:10</td>
+                <td>9:30 - 10:10</td>
+                <td>9:30 - 10:10</td>
+                <td>9:30 - 10:10</td>
+                <td class="holiday">Holiday</td>
+                <td class="holiday">Holiday</td>
+                <td class="total"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="contact-section" class="section-header">
+        <h2>Studio Operations Hub</h2>
+        <p>
+          Reach out directly for class registry, desk configurations, or
+          administrative assistance.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-grid">
+          <div class="box">
+            <b>HQ Institute</b>
+            <p>Fatir Dev Studio</p>
+          </div>
+          <div class="box">
+            <b>Phone Desk</b>
+            <a href="tel:+923348122659">0334-8122659</a>
+          </div>
+          <div class="box">
+            <b>WhatsApp</b>
+            <a href="https://wa.me/923348122659" target="_blank"
+              >Chat on WhatsApp</a
+            >
+          </div>
+          <div class="box">
+            <b>Email Support</b>
+            <a href="mailto:fatirdevstudio@gmail.com" style="font-size: 14px"
+              >fatirdevstudio@gmail.com</a
+            >
+          </div>
+          <div class="box">
+            <b>Web Portal</b>
+            <a href="https://fatirdevstudio.netlify.app" target="_blank"
+              >Visit Website</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">© 2026 Fatir Dev Studio | All Rights Reserved</div>
+
+    <script>
+      // 1. DURATION & WEEKLY TOTALS ENGINE
+      function parseTimeToMinutes(timeStr) {
+        let [h, m] = timeStr.split(":").map(Number);
+        // Assuming afternoon/evening hours (3:xx to 10:xx PM)
+        if (h >= 1 && h <= 11) {
+          h += 12;
+        }
+        return h * 60 + m;
+      }
+
+      function getDuration(start, end) {
+        let startMin = parseTimeToMinutes(start);
+        let endMin = parseTimeToMinutes(end);
+        return endMin - startMin;
+      }
+
+      let grandTotalMinutes = 0;
+
+      document.querySelectorAll("table tbody tr").forEach((row) => {
+        let rowMinutes = 0;
+
+        row.querySelectorAll("td").forEach((cell) => {
+          let text = cell.childNodes[0]?.nodeValue?.trim();
+          if (!text || !text.includes("-")) return;
+
+          let [start, end] = text.split(" - ");
+          if (start && end) {
+            let dur = getDuration(start.trim(), end.trim());
+            if (dur > 0) rowMinutes += dur;
+          }
+        });
+
+        grandTotalMinutes += rowMinutes;
+
+        let hours = Math.floor(rowMinutes / 60);
+        let minutes = rowMinutes % 60;
+
+        let totalCell = row.querySelector(".total");
+        if (totalCell) {
+          totalCell.textContent = `${hours}h ${minutes}m`;
+        }
+      });
+
+      // Update Total Teaching Hours Card
+      const grandHours = Math.floor(grandTotalMinutes / 60);
+      const grandMins = grandTotalMinutes % 60;
+      document.getElementById("total-weekly-hours").textContent =
+        `${grandHours}h ${grandMins}m`;
+
+      // 2. LIVE LECTURE HIGHLIGHTING ENGINE
+      function updateLiveLecture() {
+        const now = new Date();
+        let currentDayIdx = now.getDay(); // 0: Sun, 1: Mon, ... 6: Sat
+
+        // Map JS day to table column index (1-based: Mon=1, Tue=2... Sun=7)
+        const dayToColMap = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 0: 7 };
+        const activeColIdx = dayToColMap[currentDayIdx];
+
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+        // Reset previous highlights
+        document
+          .querySelectorAll("tr.active-lecture")
+          .forEach((r) => r.classList.remove("active-lecture"));
+        document
+          .querySelectorAll(".active-cell")
+          .forEach((c) => c.classList.remove("active-cell"));
+        document.querySelectorAll(".live-badge").forEach((b) => b.remove());
+
+        document.querySelectorAll("table tbody tr").forEach((row) => {
+          let cells = row.querySelectorAll("td");
+          if (cells.length < 8) return; // Skip separator/header rows
+
+          let dayCell = cells[activeColIdx];
+          if (!dayCell) return;
+
+          let text = dayCell.childNodes[0]?.nodeValue?.trim();
+          if (!text || !text.includes("-")) return;
+
+          let [start, end] = text.split(" - ");
+          if (start && end) {
+            let startMin = parseTimeToMinutes(start.trim());
+            let endMin = parseTimeToMinutes(end.trim());
+
+            if (currentMinutes >= startMin && currentMinutes < endMin) {
+              row.classList.add("active-lecture");
+              dayCell.classList.add("active-cell");
+
+              let badge = document.createElement("span");
+              badge.className = "live-badge";
+              badge.textContent = "LIVE";
+              dayCell.appendChild(badge);
+            }
+          }
+        });
+      }
+
+      // Run on load and update every 30 seconds
+      updateLiveLecture();
+      setInterval(updateLiveLecture, 30000);
+    </script>
+
+    <script>
+      const cursor = document.querySelector(".cursor");
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+    </script>
+  </body>
+</html>
