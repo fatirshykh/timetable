@@ -13,7 +13,7 @@
 
     <link
       rel="shortcut icon"
-      href="/FATIR DEV STUDIO Gold Monogram.png"
+      href="/30Sep24 Anis Camera Studio Free Upload .png"
       type="image/x-icon"
     />
 
@@ -43,6 +43,7 @@
         --white: #f8fafc;
         --text: #dce4ef;
         --muted: #778499;
+
         --border: rgba(255, 255, 255, 0.075);
         --border-cyan: rgba(25, 231, 255, 0.22);
 
@@ -82,6 +83,7 @@
           var(--bg);
 
         color: var(--text);
+
         font-family: "Inter", sans-serif;
       }
 
@@ -94,16 +96,14 @@
         -webkit-tap-highlight-color: transparent;
       }
 
-      /* ==========================================================
-       BACKGROUND GRID
-    ========================================================== */
-
       body::before {
         content: "";
+
         position: fixed;
         inset: 0;
-        pointer-events: none;
+
         z-index: -1;
+        pointer-events: none;
 
         background-image:
           linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
@@ -122,9 +122,9 @@
         );
       }
 
-      /* ==========================================================
+      /* =========================
        CUSTOM CURSOR
-    ========================================================== */
+    ========================= */
 
       .cursor-dot,
       .cursor-outline {
@@ -140,15 +140,18 @@
 
         .cursor-dot {
           display: block;
+
           position: fixed;
 
           width: 7px;
           height: 7px;
 
           border-radius: 50%;
+
           background: var(--cyan);
 
           transform: translate(-50%, -50%);
+
           pointer-events: none;
 
           z-index: 99999;
@@ -160,15 +163,18 @@
 
         .cursor-outline {
           display: block;
+
           position: fixed;
 
           width: 34px;
           height: 34px;
 
           border-radius: 50%;
+
           border: 1px solid rgba(25, 231, 255, 0.65);
 
           transform: translate(-50%, -50%);
+
           pointer-events: none;
 
           z-index: 99998;
@@ -182,18 +188,21 @@
         }
       }
 
-      /* ==========================================================
+      /* =========================
        NAVBAR
-    ========================================================== */
+    ========================= */
 
       .navbar {
         position: sticky;
+
         top: 0;
+
         z-index: 1000;
 
         border-bottom: 1px solid var(--border);
 
         background: rgba(5, 7, 13, 0.76);
+
         backdrop-filter: blur(22px);
 
         padding: 15px 5%;
@@ -201,17 +210,22 @@
 
       .nav-inner {
         max-width: var(--max-width);
+
         margin: auto;
 
         display: flex;
+
         align-items: center;
         justify-content: space-between;
+
         gap: 30px;
       }
 
       .brand {
         display: flex;
+
         align-items: center;
+
         gap: 12px;
 
         text-decoration: none;
@@ -222,23 +236,25 @@
         height: 43px;
 
         display: flex;
+
         align-items: center;
         justify-content: center;
 
         border-radius: 12px;
-        background-image: url(/FATIR\ DEV\ STUDIO\ Gold\ Monogram.png);
-        background-size: cover;
-        /* background: linear-gradient(
+
+        background: linear-gradient(
           135deg,
           var(--cyan),
           #86f6ff 40%,
           var(--purple)
-        ); */
+        );
 
         color: #021014;
 
         font-family: "Space Grotesk", sans-serif;
+
         font-weight: 800;
+
         font-size: 20px;
 
         box-shadow:
@@ -248,26 +264,34 @@
 
       .brand-copy h2 {
         font-family: "Space Grotesk", sans-serif;
+
         font-size: 17px;
+
         line-height: 1.1;
+
         color: var(--white);
       }
 
       .brand-copy span {
         display: block;
+
         margin-top: 4px;
 
         color: var(--muted);
+
         font-size: 9px;
         font-weight: 700;
 
         letter-spacing: 0.17em;
+
         text-transform: uppercase;
       }
 
       .nav-links {
         display: flex;
+
         align-items: center;
+
         gap: 34px;
       }
 
@@ -280,6 +304,7 @@
         font-weight: 700;
 
         letter-spacing: 0.08em;
+
         text-transform: uppercase;
 
         transition: 0.25s;
@@ -294,12 +319,15 @@
         padding: 9px 14px;
 
         border: 1px solid rgba(35, 219, 140, 0.2);
+
         border-radius: 999px;
 
         background: rgba(35, 219, 140, 0.06);
 
         display: flex;
+
         align-items: center;
+
         gap: 8px;
 
         color: #aaf8d4;
@@ -311,6 +339,7 @@
       .status-dot {
         width: 7px;
         height: 7px;
+
         border-radius: 50%;
 
         background: var(--green);
@@ -331,18 +360,19 @@
         }
       }
 
-      /* ==========================================================
-       PAGE CONTAINER
-    ========================================================== */
+      /* =========================
+       LAYOUT
+    ========================= */
 
       .container {
         width: min(90%, var(--max-width));
+
         margin: auto;
       }
 
-      /* ==========================================================
+      /* =========================
        HERO
-    ========================================================== */
+    ========================= */
 
       .hero {
         padding: 85px 0 48px;
@@ -350,14 +380,21 @@
 
       .hero-layout {
         display: grid;
-        grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+
+        grid-template-columns:
+          minmax(0, 1.35fr)
+          minmax(300px, 0.65fr);
+
         gap: 60px;
+
         align-items: center;
       }
 
       .hero-kicker {
         display: inline-flex;
+
         align-items: center;
+
         gap: 10px;
 
         margin-bottom: 22px;
@@ -365,6 +402,7 @@
         padding: 8px 13px;
 
         border: 1px solid var(--border-cyan);
+
         border-radius: 999px;
 
         background: rgba(25, 231, 255, 0.04);
@@ -375,6 +413,7 @@
         font-weight: 800;
 
         letter-spacing: 0.14em;
+
         text-transform: uppercase;
       }
 
@@ -385,6 +424,7 @@
         height: 6px;
 
         border-radius: 50%;
+
         background: var(--cyan);
 
         box-shadow: 0 0 12px var(--cyan);
@@ -396,6 +436,7 @@
         font-family: "Space Grotesk", sans-serif;
 
         font-size: clamp(48px, 6vw, 82px);
+
         line-height: 0.98;
 
         letter-spacing: -0.055em;
@@ -407,6 +448,7 @@
         background: linear-gradient(90deg, var(--cyan), #91f5ff, var(--purple));
 
         -webkit-background-clip: text;
+
         background-clip: text;
 
         color: transparent;
@@ -420,12 +462,15 @@
         color: #8592a7;
 
         font-size: 16px;
+
         line-height: 1.9;
       }
 
       .hero-mini-stats {
         display: flex;
+
         flex-wrap: wrap;
+
         gap: 30px;
 
         margin-top: 35px;
@@ -435,6 +480,7 @@
         display: block;
 
         font-family: "Space Grotesk", sans-serif;
+
         color: var(--white);
 
         font-size: 19px;
@@ -451,20 +497,23 @@
         font-weight: 700;
 
         letter-spacing: 0.09em;
+
         text-transform: uppercase;
       }
 
-      /* ==========================================================
-       LIVE CONTROL PANEL
-    ========================================================== */
+      /* =========================
+       LIVE CONTROL
+    ========================= */
 
       .live-control {
         position: relative;
+
         overflow: hidden;
 
         padding: 26px;
 
         border: 1px solid rgba(25, 231, 255, 0.16);
+
         border-radius: 24px;
 
         background:
@@ -480,6 +529,7 @@
         content: "";
 
         position: absolute;
+
         width: 150px;
         height: 150px;
 
@@ -491,13 +541,16 @@
         background: var(--cyan);
 
         filter: blur(90px);
+
         opacity: 0.13;
       }
 
       .control-label {
         display: flex;
+
         justify-content: space-between;
         align-items: center;
+
         gap: 10px;
 
         margin-bottom: 28px;
@@ -510,6 +563,7 @@
         font-weight: 800;
 
         letter-spacing: 0.12em;
+
         text-transform: uppercase;
       }
 
@@ -517,6 +571,7 @@
         padding: 5px 8px;
 
         border-radius: 6px;
+
         background: rgba(25, 231, 255, 0.08);
 
         color: var(--cyan);
@@ -529,7 +584,9 @@
         font-family: "Space Grotesk", sans-serif;
 
         font-size: clamp(43px, 5vw, 61px);
+
         font-weight: 700;
+
         line-height: 1;
 
         letter-spacing: -0.05em;
@@ -541,12 +598,14 @@
         margin-top: 10px;
 
         color: var(--muted);
+
         font-size: 12px;
         font-weight: 600;
       }
 
       .control-divider {
         height: 1px;
+
         margin: 25px 0;
 
         background: var(--border);
@@ -561,6 +620,7 @@
         font-weight: 800;
 
         letter-spacing: 0.13em;
+
         text-transform: uppercase;
       }
 
@@ -568,6 +628,7 @@
         font-family: "Space Grotesk", sans-serif;
 
         font-size: 18px;
+
         line-height: 1.35;
 
         color: var(--white);
@@ -579,33 +640,40 @@
         color: var(--muted);
 
         font-size: 11px;
+
         line-height: 1.6;
       }
 
-      /* ==========================================================
+      /* =========================
        LIVE BANNER
-    ========================================================== */
+    ========================= */
 
       .live-banner {
         margin-bottom: 28px;
 
         display: flex;
+
         align-items: center;
         justify-content: space-between;
+
         gap: 30px;
 
         padding: 19px 22px;
 
         border: 1px solid var(--border);
+
         border-radius: 16px;
 
         background: rgba(10, 14, 23, 0.72);
+
         backdrop-filter: blur(15px);
       }
 
       .live-banner-left {
         display: flex;
+
         align-items: center;
+
         gap: 13px;
       }
 
@@ -616,6 +684,7 @@
         flex: 0 0 auto;
 
         border-radius: 50%;
+
         background: var(--cyan);
 
         box-shadow:
@@ -635,6 +704,7 @@
 
       #live-banner-title {
         font-size: 13px;
+
         font-weight: 800;
 
         color: var(--white);
@@ -665,9 +735,9 @@
         font-weight: 700;
       }
 
-      /* ==========================================================
+      /* =========================
        METRICS
-    ========================================================== */
+    ========================= */
 
       .metrics {
         display: grid;
@@ -681,6 +751,7 @@
 
       .metric {
         position: relative;
+
         overflow: hidden;
 
         min-height: 142px;
@@ -688,6 +759,7 @@
         padding: 23px;
 
         border: 1px solid var(--border);
+
         border-radius: 17px;
 
         background: rgba(10, 14, 23, 0.72);
@@ -699,6 +771,7 @@
 
       .metric:hover {
         transform: translateY(-4px);
+
         border-color: rgba(25, 231, 255, 0.22);
       }
 
@@ -722,6 +795,7 @@
         font-weight: 800;
 
         letter-spacing: 0.1em;
+
         text-transform: uppercase;
       }
 
@@ -733,9 +807,9 @@
         font-size: 10px;
       }
 
-      /* ==========================================================
+      /* =========================
        SECTION HEADER
-    ========================================================== */
+    ========================= */
 
       .section {
         padding-bottom: 85px;
@@ -745,6 +819,7 @@
         margin-bottom: 30px;
 
         display: flex;
+
         align-items: flex-end;
         justify-content: space-between;
 
@@ -760,6 +835,7 @@
         font-weight: 800;
 
         letter-spacing: 0.16em;
+
         text-transform: uppercase;
       }
 
@@ -769,6 +845,7 @@
         color: var(--white);
 
         font-size: clamp(31px, 4vw, 46px);
+
         line-height: 1.05;
 
         letter-spacing: -0.04em;
@@ -780,17 +857,20 @@
         color: var(--muted);
 
         font-size: 12px;
+
         line-height: 1.7;
       }
 
-      /* ==========================================================
-       TIMELINE LAYOUT
-    ========================================================== */
+      /* =========================
+       TIMELINE
+    ========================= */
 
       .schedule-layout {
         display: grid;
 
-        grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.45fr);
+        grid-template-columns:
+          minmax(0, 1.55fr)
+          minmax(300px, 0.45fr);
 
         gap: 24px;
 
@@ -799,6 +879,7 @@
 
       .timeline-panel {
         border: 1px solid var(--border);
+
         border-radius: 24px;
 
         padding: 8px 24px;
@@ -853,6 +934,7 @@
         position: relative;
 
         display: flex;
+
         justify-content: center;
       }
 
@@ -875,6 +957,7 @@
 
       .timeline-node {
         position: relative;
+
         z-index: 2;
 
         width: 13px;
@@ -893,11 +976,13 @@
 
       .lecture-content {
         position: relative;
+
         overflow: hidden;
 
         padding: 17px 18px;
 
         border: 1px solid var(--border);
+
         border-radius: 14px;
 
         background: rgba(255, 255, 255, 0.018);
@@ -918,6 +1003,7 @@
         content: "";
 
         position: absolute;
+
         top: 0;
         bottom: 0;
         left: 0;
@@ -931,6 +1017,7 @@
 
       .lecture-top {
         display: flex;
+
         align-items: center;
         justify-content: space-between;
 
@@ -945,6 +1032,7 @@
         color: var(--white);
 
         font-size: 19px;
+
         font-weight: 700;
       }
 
@@ -963,6 +1051,7 @@
         font-weight: 800;
 
         letter-spacing: 0.08em;
+
         text-transform: uppercase;
       }
 
@@ -970,10 +1059,9 @@
         color: var(--muted);
 
         font-size: 11px;
+
         line-height: 1.6;
       }
-
-      /* Upcoming */
 
       .lecture-item.upcoming .timeline-node {
         background: var(--lecture-color);
@@ -982,8 +1070,6 @@
           0 0 0 1px var(--lecture-color),
           0 0 15px color-mix(in srgb, var(--lecture-color) 45%, transparent);
       }
-
-      /* Live */
 
       .lecture-item.live .lecture-content {
         border-color: color-mix(in srgb, var(--lecture-color) 50%, transparent);
@@ -1013,8 +1099,6 @@
         color: var(--lecture-color);
       }
 
-      /* Complete */
-
       .lecture-item.complete {
         opacity: 0.52;
       }
@@ -1031,15 +1115,17 @@
         background: rgba(35, 219, 140, 0.08);
       }
 
-      /* ==========================================================
+      /* =========================
        SIDE PANEL
-    ========================================================== */
+    ========================= */
 
       .side-panel {
         position: sticky;
+
         top: 95px;
 
         display: flex;
+
         flex-direction: column;
 
         gap: 16px;
@@ -1050,6 +1136,7 @@
         padding: 23px;
 
         border: 1px solid var(--border);
+
         border-radius: 19px;
 
         background: rgba(10, 14, 23, 0.77);
@@ -1064,6 +1151,7 @@
         font-weight: 800;
 
         letter-spacing: 0.14em;
+
         text-transform: uppercase;
       }
 
@@ -1073,6 +1161,7 @@
         color: var(--white);
 
         font-size: 23px;
+
         line-height: 1.2;
       }
 
@@ -1101,6 +1190,7 @@
         text-align: center;
 
         border: 1px solid var(--border);
+
         border-radius: 10px;
 
         background: rgba(255, 255, 255, 0.02);
@@ -1123,11 +1213,13 @@
         font-weight: 800;
 
         text-transform: uppercase;
+
         letter-spacing: 0.08em;
       }
 
       .progress-heading {
         display: flex;
+
         justify-content: space-between;
 
         margin-bottom: 10px;
@@ -1154,6 +1246,7 @@
 
       .progress-fill {
         width: 0;
+
         height: 100%;
 
         border-radius: inherit;
@@ -1167,6 +1260,7 @@
         margin-top: 18px;
 
         display: flex;
+
         flex-direction: column;
 
         gap: 12px;
@@ -1174,6 +1268,7 @@
 
       .workload-row {
         display: flex;
+
         justify-content: space-between;
 
         color: var(--muted);
@@ -1185,9 +1280,9 @@
         color: var(--white);
       }
 
-      /* ==========================================================
+      /* =========================
        BREAK WINDOWS
-    ========================================================== */
+    ========================= */
 
       .break-grid {
         display: grid;
@@ -1201,6 +1296,7 @@
         padding: 22px;
 
         border: 1px dashed rgba(149, 104, 255, 0.3);
+
         border-radius: 15px;
 
         background: rgba(149, 104, 255, 0.045);
@@ -1235,15 +1331,17 @@
         color: var(--muted);
 
         font-size: 10px;
+
         line-height: 1.6;
       }
 
-      /* ==========================================================
-       CONTACT HUB
-    ========================================================== */
+      /* =========================
+       CONTACT
+    ========================= */
 
       .contact-hub {
         position: relative;
+
         overflow: hidden;
 
         margin-bottom: 80px;
@@ -1251,6 +1349,7 @@
         padding: 45px;
 
         border: 1px solid var(--border);
+
         border-radius: 28px;
 
         background:
@@ -1300,11 +1399,13 @@
         color: var(--muted);
 
         font-size: 12px;
+
         line-height: 1.8;
       }
 
       .contact-grid {
         position: relative;
+
         z-index: 2;
 
         display: grid;
@@ -1320,6 +1421,7 @@
         padding: 18px;
 
         border: 1px solid var(--border);
+
         border-radius: 14px;
 
         background: rgba(5, 7, 13, 0.65);
@@ -1348,6 +1450,7 @@
         font-weight: 800;
 
         letter-spacing: 0.12em;
+
         text-transform: uppercase;
       }
 
@@ -1359,9 +1462,9 @@
         word-break: break-word;
       }
 
-      /* ==========================================================
+      /* =========================
        FOOTER
-    ========================================================== */
+    ========================= */
 
       footer {
         padding: 28px 5%;
@@ -1382,13 +1485,14 @@
         color: #8090a7;
       }
 
-      /* ==========================================================
+      /* =========================
        RESPONSIVE
-    ========================================================== */
+    ========================= */
 
       @media (max-width: 1050px) {
         .hero-layout {
           grid-template-columns: 1fr;
+
           gap: 35px;
         }
 
@@ -1408,6 +1512,7 @@
           position: static;
 
           display: grid;
+
           grid-template-columns: 1fr 1fr;
         }
 
@@ -1444,11 +1549,13 @@
 
         .section-head {
           align-items: flex-start;
+
           flex-direction: column;
         }
 
         .lecture-item {
           grid-template-columns: 73px 23px 1fr;
+
           gap: 10px;
         }
 
@@ -1494,6 +1601,7 @@
 
         .live-banner {
           align-items: flex-start;
+
           flex-direction: column;
         }
       }
@@ -1517,6 +1625,7 @@
 
         .lecture-item {
           grid-template-columns: 1fr;
+
           padding: 11px 0;
         }
 
@@ -1524,7 +1633,9 @@
           text-align: left;
 
           display: flex;
+
           gap: 10px;
+
           align-items: center;
         }
 
@@ -1545,57 +1656,54 @@
   </head>
 
   <body>
-    <!-- ========================================================
-       CUSTOM CURSOR
-  ========================================================= -->
+    <!-- CUSTOM CURSOR -->
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <!-- ========================================================
-       NAVIGATION
-  ========================================================= -->
+    <!-- NAVIGATION -->
 
     <nav class="navbar">
       <div class="nav-inner">
         <a class="brand" href="#top">
-          <div class="brand-icon"></div>
+          <div class="brand-icon">F</div>
 
           <div class="brand-copy">
             <h2>Fatir Dev Studio</h2>
-            <span>Technology Academy</span>
+
+            <span> Technology Academy </span>
           </div>
         </a>
 
         <div class="nav-links">
-          <a href="#top" class="active">Command Center</a>
-          <a href="#schedule">Schedule</a>
-          <a href="#breaks">Breaks</a>
-          <a href="#contact">Operations</a>
+          <a href="#top" class="active"> Command Center </a>
+
+          <a href="#schedule"> Schedule </a>
+
+          <a href="#breaks"> Breaks </a>
+
+          <a href="#contact"> Operations </a>
         </div>
 
         <div class="nav-status">
           <span class="status-dot"></span>
+
           SYSTEM ONLINE
         </div>
       </div>
     </nav>
 
-    <!-- ========================================================
-       HERO
-  ========================================================= -->
-
     <main id="top">
+      <!-- HERO -->
+
       <section class="hero">
         <div class="container hero-layout">
-          <!-- LEFT -->
-
           <div>
             <div class="hero-kicker">2026 Training Operations</div>
 
             <h1>
               Lecture
-              <span>Command Center.</span>
+              <span> Command Center. </span>
             </h1>
 
             <p class="hero-description">
@@ -1606,28 +1714,32 @@
 
             <div class="hero-mini-stats">
               <div class="hero-mini-stat">
-                <strong>07</strong>
-                <span>Daily Lectures</span>
+                <strong> 07 </strong>
+
+                <span> Daily Lectures </span>
               </div>
 
               <div class="hero-mini-stat">
-                <strong>4h 40m</strong>
-                <span>Daily Teaching</span>
+                <strong> 4h 40m </strong>
+
+                <span> Daily Teaching </span>
               </div>
 
               <div class="hero-mini-stat">
-                <strong>Mon — Fri</strong>
-                <span>Teaching Cycle</span>
+                <strong> Mon — Fri </strong>
+
+                <span> Teaching Cycle </span>
               </div>
             </div>
           </div>
 
-          <!-- RIGHT CLOCK -->
+          <!-- CLOCK PANEL -->
 
           <div class="live-control">
             <div class="control-label">
-              <span>Studio Local Time</span>
-              <span class="pkt-badge">PKT · UTC+5</span>
+              <span> Studio Local Time </span>
+
+              <span class="pkt-badge"> PKT · UTC+5 </span>
             </div>
 
             <div id="digital-time">--:--:--</div>
@@ -1645,9 +1757,7 @@
         </div>
       </section>
 
-      <!-- ======================================================
-         LIVE STATUS
-    ======================================================= -->
+      <!-- LIVE STATUS -->
 
       <section>
         <div class="container">
@@ -1707,9 +1817,7 @@
         </div>
       </section>
 
-      <!-- ======================================================
-         SCHEDULE
-    ======================================================= -->
+      <!-- SCHEDULE -->
 
       <section class="section" id="schedule">
         <div class="container">
@@ -1730,15 +1838,11 @@
           <div class="schedule-layout">
             <!-- TIMELINE -->
 
-            <div class="timeline-panel" id="lecture-timeline">
-              <!-- JavaScript renders lecture cards here -->
-            </div>
+            <div class="timeline-panel" id="lecture-timeline"></div>
 
-            <!-- SIDE INFORMATION -->
+            <!-- SIDE PANEL -->
 
             <aside class="side-panel">
-              <!-- NEXT LECTURE -->
-
               <div class="next-card">
                 <div class="panel-label">Next Lecture</div>
 
@@ -1748,30 +1852,32 @@
 
                 <div class="countdown-box">
                   <div class="countdown-unit">
-                    <strong id="countdown-hours">00</strong>
-                    <span>Hours</span>
+                    <strong id="countdown-hours"> 00 </strong>
+
+                    <span> Hours </span>
                   </div>
 
                   <div class="countdown-unit">
-                    <strong id="countdown-minutes">00</strong>
-                    <span>Minutes</span>
+                    <strong id="countdown-minutes"> 00 </strong>
+
+                    <span> Minutes </span>
                   </div>
 
                   <div class="countdown-unit">
-                    <strong id="countdown-seconds">00</strong>
-                    <span>Seconds</span>
+                    <strong id="countdown-seconds"> 00 </strong>
+
+                    <span> Seconds </span>
                   </div>
                 </div>
               </div>
-
-              <!-- WORKLOAD -->
 
               <div class="workload-card">
                 <div class="panel-label">Daily Completion</div>
 
                 <div class="progress-heading">
-                  <span>Lecture Progress</span>
-                  <span id="progress-percent">0%</span>
+                  <span> Lecture Progress </span>
+
+                  <span id="progress-percent"> 0% </span>
                 </div>
 
                 <div class="progress-track">
@@ -1780,23 +1886,27 @@
 
                 <div class="workload-details">
                   <div class="workload-row">
-                    <span>Total Sessions</span>
-                    <strong>7</strong>
+                    <span> Total Sessions </span>
+
+                    <strong> 7 </strong>
                   </div>
 
                   <div class="workload-row">
-                    <span>Lecture Duration</span>
-                    <strong>40 min each</strong>
+                    <span> Lecture Duration </span>
+
+                    <strong> 40 min each </strong>
                   </div>
 
                   <div class="workload-row">
-                    <span>Teaching Window</span>
-                    <strong>3:00 – 9:40 PM</strong>
+                    <span> Teaching Window </span>
+
+                    <strong> 3:20 – 9:40 PM </strong>
                   </div>
 
                   <div class="workload-row">
-                    <span>Teaching Days</span>
-                    <strong>Mon – Fri</strong>
+                    <span> Teaching Days </span>
+
+                    <strong> Mon – Fri </strong>
                   </div>
                 </div>
               </div>
@@ -1805,9 +1915,7 @@
         </div>
       </section>
 
-      <!-- ======================================================
-         BREAK WINDOWS
-    ======================================================= -->
+      <!-- BREAKS -->
 
       <section class="section" id="breaks">
         <div class="container">
@@ -1819,8 +1927,8 @@
             </div>
 
             <p>
-              Three 40-minute buffers separate major teaching blocks, leaving
-              room for preparation, prayer, rest and student support.
+              Scheduled gaps separate major teaching blocks, giving time for
+              preparation, prayer, rest and student support.
             </p>
           </div>
 
@@ -1828,13 +1936,13 @@
             <div class="break-box">
               <div class="break-icon">☕</div>
 
-              <h3>Session Buffer</h3>
+              <h3>Quick Reset</h3>
 
-              <div class="break-time">4:20 PM — 5:00 PM</div>
+              <div class="break-time">4:40 PM — 5:00 PM</div>
 
               <p>
-                Preparation, student coordination and recovery before the HTML &
-                CSS session.
+                A short 20-minute preparation window before the HTML & CSS
+                lecture.
               </p>
             </div>
 
@@ -1846,7 +1954,7 @@
               <div class="break-time">5:40 PM — 6:20 PM</div>
 
               <p>
-                Dedicated buffer before Agentic AI and the evening development
+                Dedicated break before Agentic AI and the evening development
                 block.
               </p>
             </div>
@@ -1864,9 +1972,7 @@
         </div>
       </section>
 
-      <!-- ======================================================
-         CONTACT / OPERATIONS
-    ======================================================= -->
+      <!-- CONTACT -->
 
       <section id="contact">
         <div class="container">
@@ -1885,13 +1991,15 @@
 
             <div class="contact-grid">
               <div class="contact-card">
-                <label>Institute</label>
-                <strong>Fatir Dev Studio</strong>
+                <label> Institute </label>
+
+                <strong> Fatir Dev Studio </strong>
               </div>
 
               <a class="contact-card" href="tel:+923348122659">
-                <label>Direct Phone</label>
-                <strong>0334-8122659</strong>
+                <label> Direct Phone </label>
+
+                <strong> 0334-8122659 </strong>
               </a>
 
               <a
@@ -1900,13 +2008,15 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <label>WhatsApp</label>
-                <strong>Chat With Studio</strong>
+                <label> WhatsApp </label>
+
+                <strong> Chat With Studio </strong>
               </a>
 
               <a class="contact-card" href="mailto:fatirdevstudio@gmail.com">
-                <label>Email</label>
-                <strong>fatirdevstudio@gmail.com</strong>
+                <label> Email </label>
+
+                <strong> fatirdevstudio@gmail.com </strong>
               </a>
 
               <a
@@ -1915,8 +2025,9 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <label>Main Website</label>
-                <strong>fatirdevstudio.netlify.app</strong>
+                <label> Main Website </label>
+
+                <strong> fatirdevstudio.netlify.app </strong>
               </a>
             </div>
           </div>
@@ -1924,128 +2035,173 @@
       </section>
     </main>
 
-    <!-- ========================================================
-       FOOTER
-  ========================================================= -->
-
     <footer>
-      © 2026 <strong>Fatir Dev Studio</strong>
+      © 2026
+      <strong> Fatir Dev Studio </strong>
       · Technical Training & Software Development
     </footer>
 
     <script>
-      /* ==========================================================
-       FINAL FATIR DEV STUDIO LECTURE SCHEDULE
+      /* ============================================
+       FATIR DEV STUDIO SCHEDULE
 
-       All times are stored in 24-hour format so there is no
-       AM / PM calculation problem.
-
-       Schedule:
-       3:00  - 3:40  HTML
-       3:40  - 4:20  Python
-       5:00  - 5:40  HTML & CSS
-       6:20  - 7:00  Agentic AI
-       7:00  - 7:40  React
-       8:20  - 9:00  JavaScript
-       9:00  - 9:40  CSS
-    ========================================================== */
+       3:20 - 4:00 PM  HTML
+       4:00 - 4:40 PM  Python
+       5:00 - 5:40 PM  HTML & CSS
+       6:20 - 7:00 PM  Agentic AI
+       7:00 - 7:40 PM  React
+       8:20 - 9:00 PM  JavaScript
+       9:00 - 9:40 PM  CSS
+    ============================================ */
 
       const lectures = [
         {
           id: 1,
+
           name: "HTML",
+
           short: "HTML",
+
           description:
             "Core markup structure, semantic HTML and web page foundations.",
-          start: "15:00",
-          end: "15:40",
-          displayStart: "3:00 PM",
-          displayEnd: "3:40 PM",
+
+          start: "15:20",
+
+          end: "16:00",
+
+          displayStart: "3:20 PM",
+
+          displayEnd: "4:00 PM",
+
           color: "#19e7ff",
         },
 
         {
           id: 2,
+
           name: "Python",
+
           short: "PYTHON",
+
           description:
             "Programming fundamentals, logic, problem solving and Python development.",
-          start: "15:40",
-          end: "16:20",
-          displayStart: "3:40 PM",
-          displayEnd: "4:20 PM",
+
+          start: "16:00",
+
+          end: "16:40",
+
+          displayStart: "4:00 PM",
+
+          displayEnd: "4:40 PM",
+
           color: "#ffd343",
         },
 
         {
           id: 3,
+
           name: "HTML & CSS",
+
           short: "FRONTEND",
+
           description:
             "Building structured and visually polished responsive web interfaces.",
+
           start: "17:00",
+
           end: "17:40",
+
           displayStart: "5:00 PM",
+
           displayEnd: "5:40 PM",
+
           color: "#ff639f",
         },
 
         {
           id: 4,
+
           name: "Agentic AI",
+
           short: "AI",
+
           description:
             "AI agents, automation workflows, intelligent systems and modern AI development.",
+
           start: "18:20",
+
           end: "19:00",
+
           displayStart: "6:20 PM",
+
           displayEnd: "7:00 PM",
+
           color: "#9568ff",
         },
 
         {
           id: 5,
+
           name: "React Development",
+
           short: "REACT",
+
           description:
             "Component-based frontend development with modern React concepts.",
+
           start: "19:00",
+
           end: "19:40",
+
           displayStart: "7:00 PM",
+
           displayEnd: "7:40 PM",
+
           color: "#61dafb",
         },
 
         {
           id: 6,
+
           name: "JavaScript",
+
           short: "JAVASCRIPT",
+
           description:
             "Interactive frontend programming, DOM manipulation and JavaScript logic.",
+
           start: "20:20",
+
           end: "21:00",
+
           displayStart: "8:20 PM",
+
           displayEnd: "9:00 PM",
+
           color: "#f7df1e",
         },
 
         {
           id: 7,
+
           name: "CSS",
+
           short: "CSS",
+
           description:
             "Modern styling, layouts, responsive design, animation and interface polish.",
+
           start: "21:00",
+
           end: "21:40",
+
           displayStart: "9:00 PM",
+
           displayEnd: "9:40 PM",
+
           color: "#4f9dff",
         },
       ];
-
-      /* ==========================================================
-       HELPERS
-    ========================================================== */
 
       const weekdays = ["MON", "TUE", "WED", "THU", "FRI"];
 
@@ -2062,11 +2218,15 @@
           weekday: "short",
 
           year: "numeric",
+
           month: "long",
+
           day: "numeric",
 
           hour: "2-digit",
+
           minute: "2-digit",
+
           second: "2-digit",
 
           hour12: false,
@@ -2077,7 +2237,16 @@
         const getPart = (type) =>
           parts.find((part) => part.type === type)?.value;
 
-        const hour = Number(getPart("hour"));
+        let hour = Number(getPart("hour"));
+
+        /*
+        Some browsers may return "24"
+        around midnight.
+      */
+
+        if (hour === 24) {
+          hour = 0;
+        }
 
         const minute = Number(getPart("minute"));
 
@@ -2099,7 +2268,9 @@
 
         return {
           hour,
+
           minute,
+
           second,
 
           dayName,
@@ -2125,9 +2296,9 @@
         );
       }
 
-      /* ==========================================================
-       RENDER LECTURE TIMELINE
-    ========================================================== */
+      /* ============================================
+       RENDER TIMELINE
+    ============================================ */
 
       function renderTimeline() {
         const timeline = document.getElementById("lecture-timeline");
@@ -2171,55 +2342,55 @@
 
           item.innerHTML = `
 
-          <div class="lecture-time">
+            <div class="lecture-time">
 
-            <strong>
-              ${lecture.displayStart}
-            </strong>
+              <strong>
+                ${lecture.displayStart}
+              </strong>
 
-            <span>
-              ${lecture.displayEnd}
-            </span>
-
-          </div>
-
-
-          <div class="timeline-track">
-
-            <div class="timeline-node"></div>
-
-          </div>
-
-
-          <div class="lecture-content">
-
-            <div class="lecture-top">
-
-              <h3 class="lecture-title">
-                ${lecture.name}
-              </h3>
-
-              <div class="lecture-badge">
-                ${badge}
-              </div>
+              <span>
+                ${lecture.displayEnd}
+              </span>
 
             </div>
 
-            <p>
-              ${lecture.description}
-            </p>
 
-          </div>
+            <div class="timeline-track">
 
-        `;
+              <div class="timeline-node"></div>
+
+            </div>
+
+
+            <div class="lecture-content">
+
+              <div class="lecture-top">
+
+                <h3 class="lecture-title">
+                  ${lecture.name}
+                </h3>
+
+                <div class="lecture-badge">
+                  ${badge}
+                </div>
+
+              </div>
+
+              <p>
+                ${lecture.description}
+              </p>
+
+            </div>
+
+          `;
 
           timeline.appendChild(item);
         });
       }
 
-      /* ==========================================================
+      /* ============================================
        DASHBOARD LOGIC
-    ========================================================== */
+    ============================================ */
 
       function updateDashboard() {
         const pakistan = getPakistanTime();
@@ -2240,8 +2411,11 @@
           timeZone: "Asia/Karachi",
 
           weekday: "long",
+
           year: "numeric",
+
           month: "long",
+
           day: "numeric",
         });
 
@@ -2275,10 +2449,6 @@
           });
         }
 
-        /* ========================================================
-         LIVE LECTURE
-      ======================================================== */
-
         const currentOperation = document.getElementById("current-operation");
 
         const operationSubtitle = document.getElementById("operation-subtitle");
@@ -2289,6 +2459,8 @@
           "live-banner-description",
         );
 
+        /* WEEKEND */
+
         if (!isTeachingDay) {
           currentOperation.textContent = "Studio Teaching Cycle Offline";
 
@@ -2298,8 +2470,10 @@
           bannerTitle.textContent = "WEEKEND OPERATIONS";
 
           bannerDescription.textContent =
-            "The next teaching cycle begins Monday at 3:00 PM.";
+            "The next teaching cycle begins Monday at 3:20 PM.";
         } else if (liveLecture) {
+
+        /* LIVE */
           currentOperation.textContent = `${liveLecture.name} · LIVE`;
 
           operationSubtitle.textContent = `${liveLecture.displayStart} — ${liveLecture.displayEnd}`;
@@ -2308,6 +2482,8 @@
 
           bannerDescription.textContent = `Active until ${liveLecture.displayEnd} · Fatir Dev Studio`;
         } else if (completed === lectures.length) {
+
+        /* FINISHED */
           currentOperation.textContent = "Daily Teaching Completed";
 
           operationSubtitle.textContent =
@@ -2316,8 +2492,10 @@
           bannerTitle.textContent = "TODAY'S OPERATIONS COMPLETE";
 
           bannerDescription.textContent =
-            "Next teaching cycle begins tomorrow at 3:00 PM.";
+            "Next teaching cycle begins at 3:20 PM.";
         } else {
+
+        /* BREAK / WAITING */
           currentOperation.textContent = nextLecture
             ? `Preparing ${nextLecture.name}`
             : "Studio Standby";
@@ -2333,9 +2511,7 @@
             : "All operations synchronized.";
         }
 
-        /* ========================================================
-         COMPLETION
-      ======================================================== */
+        /* COMPLETION */
 
         const actualCompleted = isTeachingDay ? completed : 0;
 
@@ -2353,9 +2529,7 @@
           ? `${actualCompleted} lectures completed today`
           : "Teaching resumes Monday";
 
-        /* ========================================================
-         NEXT CLASS
-      ======================================================== */
+        /* NEXT LECTURE */
 
         let nextClassForPanel = nextLecture;
 
@@ -2371,7 +2545,7 @@
           document.getElementById("next-class-name").textContent = "HTML";
 
           document.getElementById("next-class-time").textContent =
-            "Monday · 3:00 PM – 3:40 PM";
+            "Monday · 3:20 PM – 4:00 PM";
 
           setCountdownToZero();
         } else if (nextClassForPanel) {
@@ -2390,14 +2564,12 @@
             "Teaching Complete";
 
           document.getElementById("next-class-time").textContent =
-            "Next cycle · 3:00 PM";
+            "Next cycle · 3:20 PM";
 
           setCountdownToZero();
         }
 
-        /* ========================================================
-         LIVE BANNER COUNTER
-      ======================================================== */
+        /* LIVE BANNER COUNTER */
 
         const counter = document.getElementById("banner-counter");
 
@@ -2412,17 +2584,23 @@
         } else if (nextLecture && isTeachingDay) {
           const difference = timeToSeconds(nextLecture.start) - currentSeconds;
 
-          const mins = Math.floor(difference / 60);
+          const hours = Math.floor(difference / 3600);
 
-          counter.textContent = `STARTS IN ${mins}m`;
+          const minutes = Math.floor((difference % 3600) / 60);
+
+          if (hours > 0) {
+            counter.textContent = `STARTS IN ${hours}h ${minutes}m`;
+          } else {
+            counter.textContent = `STARTS IN ${minutes}m`;
+          }
         } else {
           counter.textContent = "PKT LIVE";
         }
       }
 
-      /* ==========================================================
+      /* ============================================
        COUNTDOWN
-    ========================================================== */
+    ============================================ */
 
       function updateCountdown(seconds) {
         seconds = Math.max(0, seconds);
@@ -2454,9 +2632,9 @@
         document.getElementById("countdown-seconds").textContent = "00";
       }
 
-      /* ==========================================================
-       COMPLETE SYSTEM REFRESH
-    ========================================================== */
+      /* ============================================
+       START SYSTEM
+    ============================================ */
 
       function refreshSystem() {
         updateDashboard();
@@ -2470,9 +2648,9 @@
 
       setInterval(renderTimeline, 30000);
 
-      /* ==========================================================
+      /* ============================================
        CUSTOM CURSOR
-    ========================================================== */
+    ============================================ */
 
       const cursorDot = document.querySelector(".cursor-dot");
 
