@@ -2043,48 +2043,33 @@
 
     <script>
       /* ============================================
-       FATIR DEV STUDIO SCHEDULE
+         FATIR DEV STUDIO NEW SCHEDULE
 
-       3:20 - 4:00 PM  HTML
-       4:00 - 4:40 PM  Python
-       5:00 - 5:40 PM  HTML & CSS
-       6:20 - 7:00 PM  Agentic AI
-       7:00 - 7:40 PM  React
-       8:20 - 9:00 PM  JavaScript
-       9:00 - 9:40 PM  CSS
-    ============================================ */
+         4:00 - 4:40 PM   Python
+         4:40 - 5:20 PM   Full Stack Development · FSB Batch 6
+
+         5:20 - 6:00 PM   Namaz Break
+
+         6:00 - 6:40 PM   Agentic AI
+         6:40 - 7:20 PM   React Development
+
+         7:20 - 7:40 PM   Namaz Break
+
+         7:40 - 8:20 PM   Batch 4
+         8:20 - 9:00 PM   Batch 7
+         9:00 - 9:40 PM   Batch 5
+      ============================================ */
 
       const lectures = [
         {
           id: 1,
-
-          name: "HTML",
-
-          short: "HTML",
-
-          description:
-            "Core markup structure, semantic HTML and web page foundations.",
-
-          start: "15:20",
-
-          end: "16:00",
-
-          displayStart: "3:20 PM",
-
-          displayEnd: "4:00 PM",
-
-          color: "#19e7ff",
-        },
-
-        {
-          id: 2,
 
           name: "Python",
 
           short: "PYTHON",
 
           description:
-            "Programming fundamentals, logic, problem solving and Python development.",
+            "Programming fundamentals, problem solving, logic building and practical Python development.",
 
           start: "16:00",
 
@@ -2098,77 +2083,98 @@
         },
 
         {
-          id: 3,
+          id: 2,
 
-          name: "HTML & CSS (BATCH 6)",
+          name: "Full Stack Development · FSB Batch 6",
 
-          short: "FRONTEND",
+          short: "FSB · BATCH 6",
 
           description:
-            "Building structured and visually polished responsive web interfaces.",
+            "Full stack web and software development covering frontend, backend, databases and practical development workflows.",
 
-          start: "17:00",
+          start: "16:40",
 
-          end: "17:40",
+          end: "17:20",
 
-          displayStart: "5:00 PM",
+          displayStart: "4:40 PM",
 
-          displayEnd: "5:40 PM",
+          displayEnd: "5:20 PM",
 
-          color: "#ff639f",
+          color: "#19e7ff",
         },
 
         {
-          id: 4,
+          id: 3,
 
           name: "Agentic AI",
 
-          short: "AI",
+          short: "AGENTIC AI",
 
           description:
             "AI agents, automation workflows, intelligent systems and modern AI development.",
 
-          start: "18:20",
+          start: "18:00",
 
-          end: "19:00",
+          end: "18:40",
 
-          displayStart: "6:20 PM",
+          displayStart: "6:00 PM",
 
-          displayEnd: "7:00 PM",
+          displayEnd: "6:40 PM",
 
           color: "#9568ff",
         },
 
         {
-          id: 5,
+          id: 4,
 
           name: "React Development",
 
           short: "REACT",
 
           description:
-            "Component-based frontend development with modern React concepts.",
+            "Component-based frontend development, reusable interfaces and modern React concepts.",
 
-          start: "19:00",
+          start: "18:40",
 
-          end: "19:40",
+          end: "19:20",
 
-          displayStart: "7:00 PM",
+          displayStart: "6:40 PM",
 
-          displayEnd: "7:40 PM",
+          displayEnd: "7:20 PM",
 
           color: "#61dafb",
         },
 
         {
-          id: 6,
+          id: 5,
 
-          name: "JavaScript (BATCH 4)",
+          name: "Batch 4",
 
-          short: "JAVASCRIPT",
+          short: "BATCH 4",
 
           description:
-            "Interactive frontend programming, DOM manipulation and JavaScript logic.",
+            "Interactive web development, programming logic, practical projects and frontend development.",
+
+          start: "19:40",
+
+          end: "20:20",
+
+          displayStart: "7:40 PM",
+
+          displayEnd: "8:20 PM",
+
+          color: "#f7df1e",
+        },
+
+        {
+          id: 6,
+
+          name: "Batch 7",
+
+          short: "BATCH 7",
+
+          description:
+            "Structured practical development training focused on building strong technical foundations.",
 
           start: "20:20",
 
@@ -2178,18 +2184,18 @@
 
           displayEnd: "9:00 PM",
 
-          color: "#f7df1e",
+          color: "#ff639f",
         },
 
         {
           id: 7,
 
-          name: "CSS (batch 5)",
+          name: "Batch 5",
 
-          short: "CSS",
+          short: "BATCH 5",
 
           description:
-            "Modern styling, layouts, responsive design, animation and interface polish.",
+            "Hands-on development practice, concepts, projects and progressive skill development.",
 
           start: "21:00",
 
@@ -2240,9 +2246,9 @@
         let hour = Number(getPart("hour"));
 
         /*
-        Some browsers may return "24"
-        around midnight.
-      */
+              Some browsers may return "24"
+              around midnight.
+            */
 
         if (hour === 24) {
           hour = 0;
@@ -2297,8 +2303,8 @@
       }
 
       /* ============================================
-       RENDER TIMELINE
-    ============================================ */
+             RENDER TIMELINE
+          ============================================ */
 
       function renderTimeline() {
         const timeline = document.getElementById("lecture-timeline");
@@ -2342,55 +2348,55 @@
 
           item.innerHTML = `
 
-            <div class="lecture-time">
+                  <div class="lecture-time">
 
-              <strong>
-                ${lecture.displayStart}
-              </strong>
+                    <strong>
+                      ${lecture.displayStart}
+                    </strong>
 
-              <span>
-                ${lecture.displayEnd}
-              </span>
+                    <span>
+                      ${lecture.displayEnd}
+                    </span>
 
-            </div>
-
-
-            <div class="timeline-track">
-
-              <div class="timeline-node"></div>
-
-            </div>
+                  </div>
 
 
-            <div class="lecture-content">
+                  <div class="timeline-track">
 
-              <div class="lecture-top">
+                    <div class="timeline-node"></div>
 
-                <h3 class="lecture-title">
-                  ${lecture.name}
-                </h3>
+                  </div>
 
-                <div class="lecture-badge">
-                  ${badge}
-                </div>
 
-              </div>
+                  <div class="lecture-content">
 
-              <p>
-                ${lecture.description}
-              </p>
+                    <div class="lecture-top">
 
-            </div>
+                      <h3 class="lecture-title">
+                        ${lecture.name}
+                      </h3>
 
-          `;
+                      <div class="lecture-badge">
+                        ${badge}
+                      </div>
+
+                    </div>
+
+                    <p>
+                      ${lecture.description}
+                    </p>
+
+                  </div>
+
+                `;
 
           timeline.appendChild(item);
         });
       }
 
       /* ============================================
-       DASHBOARD LOGIC
-    ============================================ */
+             DASHBOARD LOGIC
+          ============================================ */
 
       function updateDashboard() {
         const pakistan = getPakistanTime();
@@ -2472,8 +2478,7 @@
           bannerDescription.textContent =
             "The next teaching cycle begins Monday at 3:20 PM.";
         } else if (liveLecture) {
-
-        /* LIVE */
+          /* LIVE */
           currentOperation.textContent = `${liveLecture.name} · LIVE`;
 
           operationSubtitle.textContent = `${liveLecture.displayStart} — ${liveLecture.displayEnd}`;
@@ -2482,8 +2487,7 @@
 
           bannerDescription.textContent = `Active until ${liveLecture.displayEnd} · Fatir Dev Studio`;
         } else if (completed === lectures.length) {
-
-        /* FINISHED */
+          /* FINISHED */
           currentOperation.textContent = "Daily Teaching Completed";
 
           operationSubtitle.textContent =
@@ -2494,8 +2498,7 @@
           bannerDescription.textContent =
             "Next teaching cycle begins at 3:20 PM.";
         } else {
-
-        /* BREAK / WAITING */
+          /* BREAK / WAITING */
           currentOperation.textContent = nextLecture
             ? `Preparing ${nextLecture.name}`
             : "Studio Standby";
@@ -2599,8 +2602,8 @@
       }
 
       /* ============================================
-       COUNTDOWN
-    ============================================ */
+             COUNTDOWN
+          ============================================ */
 
       function updateCountdown(seconds) {
         seconds = Math.max(0, seconds);
@@ -2633,8 +2636,8 @@
       }
 
       /* ============================================
-       START SYSTEM
-    ============================================ */
+             START SYSTEM
+          ============================================ */
 
       function refreshSystem() {
         updateDashboard();
@@ -2649,8 +2652,8 @@
       setInterval(renderTimeline, 30000);
 
       /* ============================================
-       CUSTOM CURSOR
-    ============================================ */
+             CUSTOM CURSOR
+          ============================================ */
 
       const cursorDot = document.querySelector(".cursor-dot");
 
