@@ -83,7 +83,6 @@
           var(--bg);
 
         color: var(--text);
-
         font-family: "Inter", sans-serif;
       }
 
@@ -123,8 +122,8 @@
       }
 
       /* =========================
-       CUSTOM CURSOR
-    ========================= */
+         CUSTOM CURSOR
+      ========================= */
 
       .cursor-dot,
       .cursor-outline {
@@ -189,14 +188,12 @@
       }
 
       /* =========================
-       NAVBAR
-    ========================= */
+         NAVBAR
+      ========================= */
 
       .navbar {
         position: sticky;
-
         top: 0;
-
         z-index: 1000;
 
         border-bottom: 1px solid var(--border);
@@ -214,7 +211,6 @@
         margin: auto;
 
         display: flex;
-
         align-items: center;
         justify-content: space-between;
 
@@ -361,18 +357,17 @@
       }
 
       /* =========================
-       LAYOUT
-    ========================= */
+         LAYOUT
+      ========================= */
 
       .container {
         width: min(90%, var(--max-width));
-
         margin: auto;
       }
 
       /* =========================
-       HERO
-    ========================= */
+         HERO
+      ========================= */
 
       .hero {
         padding: 85px 0 48px;
@@ -448,7 +443,6 @@
         background: linear-gradient(90deg, var(--cyan), #91f5ff, var(--purple));
 
         -webkit-background-clip: text;
-
         background-clip: text;
 
         color: transparent;
@@ -502,8 +496,8 @@
       }
 
       /* =========================
-       LIVE CONTROL
-    ========================= */
+         LIVE CONTROL
+      ========================= */
 
       .live-control {
         position: relative;
@@ -645,8 +639,8 @@
       }
 
       /* =========================
-       LIVE BANNER
-    ========================= */
+         LIVE BANNER
+      ========================= */
 
       .live-banner {
         margin-bottom: 28px;
@@ -736,8 +730,8 @@
       }
 
       /* =========================
-       METRICS
-    ========================= */
+         METRICS
+      ========================= */
 
       .metrics {
         display: grid;
@@ -808,8 +802,8 @@
       }
 
       /* =========================
-       SECTION HEADER
-    ========================= */
+         SECTION HEADER
+      ========================= */
 
       .section {
         padding-bottom: 85px;
@@ -862,8 +856,8 @@
       }
 
       /* =========================
-       TIMELINE
-    ========================= */
+         TIMELINE
+      ========================= */
 
       .schedule-layout {
         display: grid;
@@ -1116,8 +1110,8 @@
       }
 
       /* =========================
-       SIDE PANEL
-    ========================= */
+         SIDE PANEL
+      ========================= */
 
       .side-panel {
         position: sticky;
@@ -1281,13 +1275,13 @@
       }
 
       /* =========================
-       BREAK WINDOWS
-    ========================= */
+         BREAK WINDOWS
+      ========================= */
 
       .break-grid {
         display: grid;
 
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
         gap: 15px;
       }
@@ -1336,8 +1330,8 @@
       }
 
       /* =========================
-       CONTACT
-    ========================= */
+         CONTACT
+      ========================= */
 
       .contact-hub {
         position: relative;
@@ -1463,8 +1457,8 @@
       }
 
       /* =========================
-       FOOTER
-    ========================= */
+         FOOTER
+      ========================= */
 
       footer {
         padding: 28px 5%;
@@ -1486,8 +1480,8 @@
       }
 
       /* =========================
-       RESPONSIVE
-    ========================= */
+         RESPONSIVE
+      ========================= */
 
       @media (max-width: 1050px) {
         .hero-layout {
@@ -1656,12 +1650,8 @@
   </head>
 
   <body>
-    <!-- CUSTOM CURSOR -->
-
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-
-    <!-- NAVIGATION -->
 
     <nav class="navbar">
       <div class="nav-inner">
@@ -1670,32 +1660,25 @@
 
           <div class="brand-copy">
             <h2>Fatir Dev Studio</h2>
-
-            <span> Technology Academy </span>
+            <span>Technology Academy</span>
           </div>
         </a>
 
         <div class="nav-links">
-          <a href="#top" class="active"> Command Center </a>
-
-          <a href="#schedule"> Schedule </a>
-
-          <a href="#breaks"> Breaks </a>
-
-          <a href="#contact"> Operations </a>
+          <a href="#top" class="active">Command Center</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#breaks">Breaks</a>
+          <a href="#contact">Operations</a>
         </div>
 
         <div class="nav-status">
           <span class="status-dot"></span>
-
           SYSTEM ONLINE
         </div>
       </div>
     </nav>
 
     <main id="top">
-      <!-- HERO -->
-
       <section class="hero">
         <div class="container hero-layout">
           <div>
@@ -1703,7 +1686,7 @@
 
             <h1>
               Lecture
-              <span> Command Center. </span>
+              <span>Command Center.</span>
             </h1>
 
             <p class="hero-description">
@@ -1714,32 +1697,26 @@
 
             <div class="hero-mini-stats">
               <div class="hero-mini-stat">
-                <strong> 07 </strong>
-
-                <span> Daily Lectures </span>
+                <strong>07</strong>
+                <span>Daily Lectures</span>
               </div>
 
               <div class="hero-mini-stat">
-                <strong> 4h 40m </strong>
-
-                <span> Daily Teaching </span>
+                <strong>4h 40m</strong>
+                <span>Daily Teaching</span>
               </div>
 
               <div class="hero-mini-stat">
-                <strong> Mon — Fri </strong>
-
-                <span> Teaching Cycle </span>
+                <strong>Mon — Fri</strong>
+                <span>Teaching Cycle</span>
               </div>
             </div>
           </div>
 
-          <!-- CLOCK PANEL -->
-
           <div class="live-control">
             <div class="control-label">
-              <span> Studio Local Time </span>
-
-              <span class="pkt-badge"> PKT · UTC+5 </span>
+              <span>Studio Local Time</span>
+              <span class="pkt-badge">PKT · UTC+5</span>
             </div>
 
             <div id="digital-time">--:--:--</div>
@@ -1756,8 +1733,6 @@
           </div>
         </div>
       </section>
-
-      <!-- LIVE STATUS -->
 
       <section>
         <div class="container">
@@ -1776,8 +1751,6 @@
 
             <div class="banner-counter" id="banner-counter">PKT LIVE</div>
           </div>
-
-          <!-- METRICS -->
 
           <div class="metrics">
             <div class="metric">
@@ -1817,8 +1790,6 @@
         </div>
       </section>
 
-      <!-- SCHEDULE -->
-
       <section class="section" id="schedule">
         <div class="container">
           <div class="section-head">
@@ -1836,11 +1807,7 @@
           </div>
 
           <div class="schedule-layout">
-            <!-- TIMELINE -->
-
             <div class="timeline-panel" id="lecture-timeline"></div>
-
-            <!-- SIDE PANEL -->
 
             <aside class="side-panel">
               <div class="next-card">
@@ -1852,21 +1819,18 @@
 
                 <div class="countdown-box">
                   <div class="countdown-unit">
-                    <strong id="countdown-hours"> 00 </strong>
-
-                    <span> Hours </span>
+                    <strong id="countdown-hours">00</strong>
+                    <span>Hours</span>
                   </div>
 
                   <div class="countdown-unit">
-                    <strong id="countdown-minutes"> 00 </strong>
-
-                    <span> Minutes </span>
+                    <strong id="countdown-minutes">00</strong>
+                    <span>Minutes</span>
                   </div>
 
                   <div class="countdown-unit">
-                    <strong id="countdown-seconds"> 00 </strong>
-
-                    <span> Seconds </span>
+                    <strong id="countdown-seconds">00</strong>
+                    <span>Seconds</span>
                   </div>
                 </div>
               </div>
@@ -1875,9 +1839,8 @@
                 <div class="panel-label">Daily Completion</div>
 
                 <div class="progress-heading">
-                  <span> Lecture Progress </span>
-
-                  <span id="progress-percent"> 0% </span>
+                  <span>Lecture Progress</span>
+                  <span id="progress-percent">0%</span>
                 </div>
 
                 <div class="progress-track">
@@ -1886,27 +1849,23 @@
 
                 <div class="workload-details">
                   <div class="workload-row">
-                    <span> Total Sessions </span>
-
-                    <strong> 7 </strong>
+                    <span>Total Sessions</span>
+                    <strong>7</strong>
                   </div>
 
                   <div class="workload-row">
-                    <span> Lecture Duration </span>
-
-                    <strong> 40 min each </strong>
+                    <span>Lecture Duration</span>
+                    <strong>40 min each</strong>
                   </div>
 
                   <div class="workload-row">
-                    <span> Teaching Window </span>
-
-                    <strong> 3:20 – 9:40 PM </strong>
+                    <span>Teaching Window</span>
+                    <strong>4:00 – 9:40 PM</strong>
                   </div>
 
                   <div class="workload-row">
-                    <span> Teaching Days </span>
-
-                    <strong> Mon – Fri </strong>
+                    <span>Teaching Days</span>
+                    <strong>Mon – Fri</strong>
                   </div>
                 </div>
               </div>
@@ -1914,8 +1873,6 @@
           </div>
         </div>
       </section>
-
-      <!-- BREAKS -->
 
       <section class="section" id="breaks">
         <div class="container">
@@ -1927,52 +1884,40 @@
             </div>
 
             <p>
-              Scheduled gaps separate major teaching blocks, giving time for
-              preparation, prayer, rest and student support.
+              Scheduled prayer and preparation windows separate major teaching
+              blocks and provide time for reset and student support.
             </p>
           </div>
 
           <div class="break-grid">
             <div class="break-box">
-              <div class="break-icon">☕</div>
+              <div class="break-icon">🕌</div>
 
-              <h3>Quick Reset</h3>
+              <h3>Namaz Break</h3>
 
-              <div class="break-time">4:40 PM — 5:00 PM</div>
+              <div class="break-time">5:20 PM — 6:00 PM</div>
 
               <p>
-                A short 20-minute preparation window before the HTML & CSS
-                lecture.
+                A 40-minute prayer and reset window before the Agentic AI and
+                evening development sessions.
               </p>
             </div>
 
             <div class="break-box">
               <div class="break-icon">🕌</div>
 
-              <h3>Prayer / Reset</h3>
+              <h3>Namaz Break</h3>
 
-              <div class="break-time">5:40 PM — 6:20 PM</div>
+              <div class="break-time">7:20 PM — 7:40 PM</div>
 
               <p>
-                Dedicated break before Agentic AI and the evening development
-                block.
+                A 20-minute prayer and preparation break before Batch 4 and the
+                final evening sessions.
               </p>
-            </div>
-
-            <div class="break-box">
-              <div class="break-icon">⚡</div>
-
-              <h3>Evening Reset</h3>
-
-              <div class="break-time">7:40 PM — 8:20 PM</div>
-
-              <p>Preparation before the JavaScript and CSS night sessions.</p>
             </div>
           </div>
         </div>
       </section>
-
-      <!-- CONTACT -->
 
       <section id="contact">
         <div class="container">
@@ -1991,15 +1936,15 @@
 
             <div class="contact-grid">
               <div class="contact-card">
-                <label> Institute </label>
+                <label>Institute</label>
 
-                <strong> Fatir Dev Studio </strong>
+                <strong>Fatir Dev Studio</strong>
               </div>
 
               <a class="contact-card" href="tel:+923348122659">
-                <label> Direct Phone </label>
+                <label>Direct Phone</label>
 
-                <strong> 0334-8122659 </strong>
+                <strong>0334-8122659</strong>
               </a>
 
               <a
@@ -2008,15 +1953,15 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <label> WhatsApp </label>
+                <label>WhatsApp</label>
 
-                <strong> Chat With Studio </strong>
+                <strong>Chat With Studio</strong>
               </a>
 
               <a class="contact-card" href="mailto:fatirdevstudio@gmail.com">
-                <label> Email </label>
+                <label>Email</label>
 
-                <strong> fatirdevstudio@gmail.com </strong>
+                <strong>fatirdevstudio@gmail.com</strong>
               </a>
 
               <a
@@ -2025,9 +1970,9 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <label> Main Website </label>
+                <label>Main Website</label>
 
-                <strong> fatirdevstudio.netlify.app </strong>
+                <strong>fatirdevstudio.netlify.app</strong>
               </a>
             </div>
           </div>
@@ -2037,27 +1982,27 @@
 
     <footer>
       © 2026
-      <strong> Fatir Dev Studio </strong>
+      <strong>Fatir Dev Studio</strong>
       · Technical Training & Software Development
     </footer>
 
     <script>
       /* ============================================
-         FATIR DEV STUDIO NEW SCHEDULE
+         FATIR DEV STUDIO UPDATED SCHEDULE
 
-         4:00 - 4:40 PM   Python
-         4:40 - 5:20 PM   Full Stack Development · FSB Batch 6
+         4:00 - 4:40 PM  Python
+         4:40 - 5:20 PM  Full Stack Development · FSB Batch 6
 
-         5:20 - 6:00 PM   Namaz Break
+         5:20 - 6:00 PM  Namaz Break
 
-         6:00 - 6:40 PM   Agentic AI
-         6:40 - 7:20 PM   React Development
+         6:00 - 6:40 PM  Agentic AI
+         6:40 - 7:20 PM  React Development
 
-         7:20 - 7:40 PM   Namaz Break
+         7:20 - 7:40 PM  Namaz Break
 
-         7:40 - 8:20 PM   Batch 4
-         8:20 - 9:00 PM   Batch 7
-         9:00 - 9:40 PM   Batch 5
+         7:40 - 8:20 PM  Batch 4
+         8:20 - 9:00 PM  Batch 7
+         9:00 - 9:40 PM  Batch 5
       ============================================ */
 
       const lectures = [
@@ -2085,32 +2030,33 @@
         {
           id: 2,
 
-          name: "React Development",
-
-          short: "REACT",
-
-          description:
-            "Component-based frontend development, reusable interfaces and modern React concepts.",
-
-          start: "16:40",
-
-          end: "17:20",
-
-          displayStart: "4:40 PM",
-
-          displayEnd: "5:20 PM",
-
-          color: "#61dafb",
-        },
-        {
-          id: 3,
-
           name: "Full Stack Development · FSB Batch 6",
 
           short: "FSB · BATCH 6",
 
           description:
             "Full stack web and software development covering frontend, backend, databases and practical development workflows.",
+
+          start: "17:20",
+
+          end: "18:00",
+
+          displayStart: "5:20 PM",
+
+          displayEnd: "6:00 PM",
+
+          color: "#19e7ff",
+        },
+
+        {
+          id: 3,
+
+          name: "Agentic AI",
+
+          short: "AGENTIC AI",
+
+          description:
+            "AI agents, automation workflows, intelligent systems and modern AI development.",
 
           start: "18:00",
 
@@ -2120,17 +2066,18 @@
 
           displayEnd: "6:40 PM",
 
-          color: "#19e7ff",
+          color: "#9568ff",
         },
+
         {
           id: 4,
 
-          name: "Agentic AI",
+          name: "React Development",
 
-          short: "AGENTIC AI",
+          short: "REACT",
 
           description:
-            "AI agents, automation workflows, intelligent systems and modern AI development.",
+            "Component-based frontend development, reusable interfaces and modern React concepts.",
 
           start: "18:40",
 
@@ -2140,7 +2087,7 @@
 
           displayEnd: "7:20 PM",
 
-          color: "#9568ff",
+          color: "#61dafb",
         },
 
         {
@@ -2243,17 +2190,11 @@
 
         let hour = Number(getPart("hour"));
 
-        /*
-              Some browsers may return "24"
-              around midnight.
-            */
-
         if (hour === 24) {
           hour = 0;
         }
 
         const minute = Number(getPart("minute"));
-
         const second = Number(getPart("second"));
 
         let dayName = getPart("weekday").toUpperCase();
@@ -2272,11 +2213,8 @@
 
         return {
           hour,
-
           minute,
-
           second,
-
           dayName,
 
           currentSeconds: hour * 3600 + minute * 60 + second,
@@ -2301,8 +2239,8 @@
       }
 
       /* ============================================
-             RENDER TIMELINE
-          ============================================ */
+         RENDER TIMELINE
+      ============================================ */
 
       function renderTimeline() {
         const timeline = document.getElementById("lecture-timeline");
@@ -2317,24 +2255,19 @@
 
         lectures.forEach((lecture) => {
           const start = timeToSeconds(lecture.start);
-
           const end = timeToSeconds(lecture.end);
 
           let statusClass = "upcoming";
-
           let badge = "UPCOMING";
 
           if (!isTeachingDay) {
             statusClass = "upcoming";
-
             badge = "NEXT CYCLE";
           } else if (currentSeconds >= end) {
             statusClass = "complete";
-
             badge = "COMPLETED";
           } else if (currentSeconds >= start && currentSeconds < end) {
             statusClass = "live";
-
             badge = "LIVE NOW";
           }
 
@@ -2345,56 +2278,39 @@
           item.style.setProperty("--lecture-color", lecture.color);
 
           item.innerHTML = `
+            <div class="lecture-time">
+              <strong>${lecture.displayStart}</strong>
+              <span>${lecture.displayEnd}</span>
+            </div>
 
-                  <div class="lecture-time">
+            <div class="timeline-track">
+              <div class="timeline-node"></div>
+            </div>
 
-                    <strong>
-                      ${lecture.displayStart}
-                    </strong>
+            <div class="lecture-content">
+              <div class="lecture-top">
+                <h3 class="lecture-title">
+                  ${lecture.name}
+                </h3>
 
-                    <span>
-                      ${lecture.displayEnd}
-                    </span>
+                <div class="lecture-badge">
+                  ${badge}
+                </div>
+              </div>
 
-                  </div>
-
-
-                  <div class="timeline-track">
-
-                    <div class="timeline-node"></div>
-
-                  </div>
-
-
-                  <div class="lecture-content">
-
-                    <div class="lecture-top">
-
-                      <h3 class="lecture-title">
-                        ${lecture.name}
-                      </h3>
-
-                      <div class="lecture-badge">
-                        ${badge}
-                      </div>
-
-                    </div>
-
-                    <p>
-                      ${lecture.description}
-                    </p>
-
-                  </div>
-
-                `;
+              <p>
+                ${lecture.description}
+              </p>
+            </div>
+          `;
 
           timeline.appendChild(item);
         });
       }
 
       /* ============================================
-             DASHBOARD LOGIC
-          ============================================ */
+         DASHBOARD LOGIC
+      ============================================ */
 
       function updateDashboard() {
         const pakistan = getPakistanTime();
@@ -2402,8 +2318,6 @@
         const { hour, minute, second, currentSeconds, dayName } = pakistan;
 
         const isTeachingDay = weekdays.includes(dayName);
-
-        /* CLOCK */
 
         document.getElementById("digital-time").textContent = formatClock12Hour(
           hour,
@@ -2428,15 +2342,12 @@
         );
 
         let liveLecture = null;
-
         let nextLecture = null;
-
         let completed = 0;
 
         if (isTeachingDay) {
           lectures.forEach((lecture) => {
             const start = timeToSeconds(lecture.start);
-
             const end = timeToSeconds(lecture.end);
 
             if (currentSeconds >= end) {
@@ -2463,8 +2374,6 @@
           "live-banner-description",
         );
 
-        /* WEEKEND */
-
         if (!isTeachingDay) {
           currentOperation.textContent = "Studio Teaching Cycle Offline";
 
@@ -2474,9 +2383,8 @@
           bannerTitle.textContent = "WEEKEND OPERATIONS";
 
           bannerDescription.textContent =
-            "The next teaching cycle begins Monday at 3:20 PM.";
+            "The next teaching cycle begins Monday at 4:00 PM.";
         } else if (liveLecture) {
-          /* LIVE */
           currentOperation.textContent = `${liveLecture.name} · LIVE`;
 
           operationSubtitle.textContent = `${liveLecture.displayStart} — ${liveLecture.displayEnd}`;
@@ -2485,7 +2393,6 @@
 
           bannerDescription.textContent = `Active until ${liveLecture.displayEnd} · Fatir Dev Studio`;
         } else if (completed === lectures.length) {
-          /* FINISHED */
           currentOperation.textContent = "Daily Teaching Completed";
 
           operationSubtitle.textContent =
@@ -2494,9 +2401,8 @@
           bannerTitle.textContent = "TODAY'S OPERATIONS COMPLETE";
 
           bannerDescription.textContent =
-            "Next teaching cycle begins at 3:20 PM.";
+            "Next teaching cycle begins at 4:00 PM.";
         } else {
-          /* BREAK / WAITING */
           currentOperation.textContent = nextLecture
             ? `Preparing ${nextLecture.name}`
             : "Studio Standby";
@@ -2511,8 +2417,6 @@
             ? `Next: ${nextLecture.name} · ${nextLecture.displayStart}`
             : "All operations synchronized.";
         }
-
-        /* COMPLETION */
 
         const actualCompleted = isTeachingDay ? completed : 0;
 
@@ -2530,8 +2434,6 @@
           ? `${actualCompleted} lectures completed today`
           : "Teaching resumes Monday";
 
-        /* NEXT LECTURE */
-
         let nextClassForPanel = nextLecture;
 
         if (liveLecture) {
@@ -2543,10 +2445,10 @@
         }
 
         if (!isTeachingDay) {
-          document.getElementById("next-class-name").textContent = "HTML";
+          document.getElementById("next-class-name").textContent = "Python";
 
           document.getElementById("next-class-time").textContent =
-            "Monday · 3:20 PM – 4:00 PM";
+            "Monday · 4:00 PM – 4:40 PM";
 
           setCountdownToZero();
         } else if (nextClassForPanel) {
@@ -2565,12 +2467,10 @@
             "Teaching Complete";
 
           document.getElementById("next-class-time").textContent =
-            "Next cycle · 3:20 PM";
+            "Next cycle · 4:00 PM";
 
           setCountdownToZero();
         }
-
-        /* LIVE BANNER COUNTER */
 
         const counter = document.getElementById("banner-counter");
 
@@ -2600,8 +2500,8 @@
       }
 
       /* ============================================
-             COUNTDOWN
-          ============================================ */
+         COUNTDOWN
+      ============================================ */
 
       function updateCountdown(seconds) {
         seconds = Math.max(0, seconds);
@@ -2634,12 +2534,11 @@
       }
 
       /* ============================================
-             START SYSTEM
-          ============================================ */
+         START SYSTEM
+      ============================================ */
 
       function refreshSystem() {
         updateDashboard();
-
         renderTimeline();
       }
 
@@ -2650,8 +2549,8 @@
       setInterval(renderTimeline, 30000);
 
       /* ============================================
-             CUSTOM CURSOR
-          ============================================ */
+         CUSTOM CURSOR
+      ============================================ */
 
       const cursorDot = document.querySelector(".cursor-dot");
 
