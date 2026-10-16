@@ -3,2584 +3,1492 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Fatir Dev Studio | Lecture Command Center</title>
-
+    <meta name="theme-color" content="#0b0b0b" />
+    <title>FDS | Weekly Lecture Command Center</title>
     <meta
       name="description"
-      content="Fatir Dev Studio daily lecture schedule and academy command center."
+      content="Fatir Dev Studio daily and weekly lecture timetable with instructor university schedule."
     />
-
-    <link
-      rel="shortcut icon"
-      href="/FATIR DEV STUDIO Gold Monogram.png"
-      type="image/x-icon"
-    />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        --bg: #05070d;
-        --surface: #0a0e17;
-        --surface-2: #101622;
-        --surface-3: #141c2b;
+        --bg: #090909;
+        --bg-soft: #0f0f0f;
+        --surface: rgba(20, 20, 20, 0.86);
+        --surface-2: rgba(27, 27, 27, 0.88);
+        --surface-solid: #151515;
+        --text: #f5f1e8;
+        --muted: #a69d8e;
+        --faint: #756d61;
+        --gold: #d9ae58;
+        --gold-2: #f0cf86;
+        --gold-soft: rgba(217, 174, 88, 0.12);
+        --border: rgba(240, 207, 134, 0.14);
+        --border-strong: rgba(240, 207, 134, 0.3);
+        --danger: #e58a8a;
+        --success: #9bd4ab;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+        --radius-md: 14px;
+        --max: 1420px;
+      }
 
-        --cyan: #19e7ff;
-        --cyan-soft: rgba(25, 231, 255, 0.12);
-
-        --purple: #9568ff;
-        --pink: #ff3d9a;
-        --green: #23db8c;
-        --orange: #ffad42;
-
-        --white: #f8fafc;
-        --text: #dce4ef;
-        --muted: #778499;
-
-        --border: rgba(255, 255, 255, 0.075);
-        --border-cyan: rgba(25, 231, 255, 0.22);
-
-        --max-width: 1380px;
+      body.light {
+        --bg: #f3efe7;
+        --bg-soft: #ebe4d8;
+        --surface: rgba(255, 252, 246, 0.88);
+        --surface-2: rgba(250, 245, 235, 0.92);
+        --surface-solid: #fffaf2;
+        --text: #1e1b17;
+        --muted: #6f665b;
+        --faint: #8d8274;
+        --gold: #9c6b20;
+        --gold-2: #b9832f;
+        --gold-soft: rgba(156, 107, 32, 0.1);
+        --border: rgba(90, 65, 32, 0.14);
+        --border-strong: rgba(156, 107, 32, 0.3);
+        --danger: #a94c4c;
+        --success: #35764a;
+        --shadow: 0 22px 70px rgba(87, 70, 45, 0.12);
       }
 
       * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
         min-height: 100vh;
-        overflow-x: hidden;
-
         background:
+          radial-gradient(circle at 10% 0%, var(--gold-soft), transparent 28%),
           radial-gradient(
-            circle at 10% 0%,
-            rgba(25, 231, 255, 0.08),
-            transparent 30%
-          ),
-          radial-gradient(
-            circle at 90% 20%,
-            rgba(149, 104, 255, 0.1),
-            transparent 35%
-          ),
-          radial-gradient(
-            circle at 50% 100%,
-            rgba(255, 61, 154, 0.04),
-            transparent 35%
+            circle at 92% 12%,
+            rgba(240, 207, 134, 0.06),
+            transparent 26%
           ),
           var(--bg);
-
         color: var(--text);
         font-family: "Inter", sans-serif;
+        transition:
+          background 0.25s ease,
+          color 0.25s ease;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.45;
+        background-image:
+          linear-gradient(rgba(217, 174, 88, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(217, 174, 88, 0.025) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: linear-gradient(to bottom, #000, transparent 88%);
       }
 
       a {
         color: inherit;
       }
-
-      button,
-      a {
-        -webkit-tap-highlight-color: transparent;
+      button {
+        font: inherit;
       }
 
-      body::before {
-        content: "";
-
-        position: fixed;
-        inset: 0;
-
-        z-index: -1;
-        pointer-events: none;
-
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-          linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.018) 1px,
-            transparent 1px
-          );
-
-        background-size: 65px 65px;
-
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.8),
-          transparent 85%
-        );
+      .container {
+        width: min(92%, var(--max));
+        margin: 0 auto;
       }
-
-      /* =========================
-         CUSTOM CURSOR
-      ========================= */
-
-      .cursor-dot,
-      .cursor-outline {
-        display: none;
-      }
-
-      @media (pointer: fine) {
-        body,
-        a,
-        button {
-          cursor: none;
-        }
-
-        .cursor-dot {
-          display: block;
-
-          position: fixed;
-
-          width: 7px;
-          height: 7px;
-
-          border-radius: 50%;
-
-          background: var(--cyan);
-
-          transform: translate(-50%, -50%);
-
-          pointer-events: none;
-
-          z-index: 99999;
-
-          box-shadow:
-            0 0 10px var(--cyan),
-            0 0 20px rgba(25, 231, 255, 0.5);
-        }
-
-        .cursor-outline {
-          display: block;
-
-          position: fixed;
-
-          width: 34px;
-          height: 34px;
-
-          border-radius: 50%;
-
-          border: 1px solid rgba(25, 231, 255, 0.65);
-
-          transform: translate(-50%, -50%);
-
-          pointer-events: none;
-
-          z-index: 99998;
-
-          transition:
-            width 0.2s ease,
-            height 0.2s ease,
-            border-color 0.2s ease;
-
-          box-shadow: 0 0 18px rgba(25, 231, 255, 0.12);
-        }
-      }
-
-      /* =========================
-         NAVBAR
-      ========================= */
 
       .navbar {
         position: sticky;
         top: 0;
         z-index: 1000;
-
         border-bottom: 1px solid var(--border);
-
-        background: rgba(5, 7, 13, 0.76);
-
+        background: color-mix(in srgb, var(--bg) 84%, transparent);
         backdrop-filter: blur(22px);
-
-        padding: 15px 5%;
       }
 
       .nav-inner {
-        max-width: var(--max-width);
-
-        margin: auto;
-
+        min-height: 72px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        gap: 30px;
+        gap: 22px;
       }
 
       .brand {
         display: flex;
-
         align-items: center;
-
         gap: 12px;
-
         text-decoration: none;
       }
-
-      .brand-icon {
-        width: 43px;
-        height: 43px;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 12px;
-
-        background: linear-gradient(
-          135deg,
-          var(--cyan),
-          #86f6ff 40%,
-          var(--purple)
-        );
-
-        color: #021014;
-
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 13px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(145deg, var(--gold-2), var(--gold));
+        color: #17110a;
         font-family: "Space Grotesk", sans-serif;
-
         font-weight: 800;
-
-        font-size: 20px;
-
-        box-shadow:
-          0 0 25px rgba(25, 231, 255, 0.23),
-          inset 0 1px rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 28px rgba(217, 174, 88, 0.18);
       }
-
-      .brand-copy h2 {
-        font-family: "Space Grotesk", sans-serif;
-
-        font-size: 17px;
-
-        line-height: 1.1;
-
-        color: var(--white);
+      .brand-copy strong {
+        display: block;
+        font-family: "Space Grotesk";
+        font-size: 16px;
       }
-
       .brand-copy span {
         display: block;
-
-        margin-top: 4px;
-
         color: var(--muted);
-
         font-size: 9px;
-        font-weight: 700;
-
-        letter-spacing: 0.17em;
-
+        font-weight: 800;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
+        margin-top: 3px;
       }
 
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
       .nav-links {
         display: flex;
-
-        align-items: center;
-
-        gap: 34px;
+        gap: 24px;
+        margin-right: 12px;
       }
-
       .nav-links a {
         text-decoration: none;
-
         color: var(--muted);
-
-        font-size: 12px;
-        font-weight: 700;
-
-        letter-spacing: 0.08em;
-
-        text-transform: uppercase;
-
-        transition: 0.25s;
-      }
-
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--cyan);
-      }
-
-      .nav-status {
-        padding: 9px 14px;
-
-        border: 1px solid rgba(35, 219, 140, 0.2);
-
-        border-radius: 999px;
-
-        background: rgba(35, 219, 140, 0.06);
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 8px;
-
-        color: #aaf8d4;
-
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .nav-links a:hover {
+        color: var(--gold-2);
       }
 
-      .status-dot {
-        width: 7px;
-        height: 7px;
-
-        border-radius: 50%;
-
-        background: var(--green);
-
-        box-shadow: 0 0 10px var(--green);
-
-        animation: statusPulse 1.7s infinite;
+      .theme-btn {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--gold-2);
+        cursor: pointer;
+        transition: 0.2s ease;
       }
-
-      @keyframes statusPulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-
-        50% {
-          opacity: 0.35;
-        }
+      .theme-btn:hover {
+        transform: translateY(-2px);
+        border-color: var(--border-strong);
       }
-
-      /* =========================
-         LAYOUT
-      ========================= */
-
-      .container {
-        width: min(90%, var(--max-width));
-        margin: auto;
-      }
-
-      /* =========================
-         HERO
-      ========================= */
 
       .hero {
-        padding: 85px 0 48px;
+        padding: 76px 0 42px;
       }
-
-      .hero-layout {
+      .hero-grid {
         display: grid;
-
-        grid-template-columns:
-          minmax(0, 1.35fr)
-          minmax(300px, 0.65fr);
-
-        gap: 60px;
-
-        align-items: center;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 32px;
+        align-items: stretch;
       }
-
-      .hero-kicker {
-        display: inline-flex;
-
-        align-items: center;
-
-        gap: 10px;
-
-        margin-bottom: 22px;
-
-        padding: 8px 13px;
-
-        border: 1px solid var(--border-cyan);
-
-        border-radius: 999px;
-
-        background: rgba(25, 231, 255, 0.04);
-
-        color: var(--cyan);
-
-        font-size: 11px;
+      .hero-copy,
+      .clock-card {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        backdrop-filter: blur(18px);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+      }
+      .hero-copy {
+        padding: clamp(28px, 4vw, 56px);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-copy::after {
+        content: "FDS";
+        position: absolute;
+        right: 22px;
+        bottom: -30px;
+        font-family: "Space Grotesk";
+        font-size: 150px;
         font-weight: 800;
-
-        letter-spacing: 0.14em;
-
-        text-transform: uppercase;
+        color: var(--gold-soft);
+        pointer-events: none;
       }
-
-      .hero-kicker::before {
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--gold-2);
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        border: 1px solid var(--border-strong);
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: var(--gold-soft);
+      }
+      .kicker::before {
         content: "";
-
         width: 6px;
         height: 6px;
-
         border-radius: 50%;
-
-        background: var(--cyan);
-
-        box-shadow: 0 0 12px var(--cyan);
+        background: var(--gold-2);
+        box-shadow: 0 0 12px var(--gold);
       }
-
       .hero h1 {
-        max-width: 850px;
-
-        font-family: "Space Grotesk", sans-serif;
-
+        max-width: 900px;
+        margin-top: 24px;
+        font-family: "Playfair Display", serif;
         font-size: clamp(48px, 6vw, 82px);
-
         line-height: 0.98;
-
-        letter-spacing: -0.055em;
-
-        color: var(--white);
+        letter-spacing: -0.045em;
       }
-
       .hero h1 span {
-        background: linear-gradient(90deg, var(--cyan), #91f5ff, var(--purple));
-
-        -webkit-background-clip: text;
-        background-clip: text;
-
-        color: transparent;
+        color: var(--gold-2);
+      }
+      .hero p {
+        max-width: 760px;
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.85;
       }
 
-      .hero-description {
-        margin-top: 25px;
-
-        max-width: 700px;
-
-        color: #8592a7;
-
-        font-size: 16px;
-
-        line-height: 1.9;
-      }
-
-      .hero-mini-stats {
+      .quick-stats {
         display: flex;
-
         flex-wrap: wrap;
-
-        gap: 30px;
-
-        margin-top: 35px;
-      }
-
-      .hero-mini-stat strong {
-        display: block;
-
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 19px;
-      }
-
-      .hero-mini-stat span {
-        display: block;
-
-        margin-top: 3px;
-
-        color: var(--muted);
-
-        font-size: 10px;
-        font-weight: 700;
-
-        letter-spacing: 0.09em;
-
-        text-transform: uppercase;
-      }
-
-      /* =========================
-         LIVE CONTROL
-      ========================= */
-
-      .live-control {
+        gap: 26px;
+        margin-top: 34px;
         position: relative;
-
-        overflow: hidden;
-
-        padding: 26px;
-
-        border: 1px solid rgba(25, 231, 255, 0.16);
-
-        border-radius: 24px;
-
-        background:
-          linear-gradient(145deg, rgba(25, 231, 255, 0.07), transparent 45%),
-          rgba(10, 14, 23, 0.86);
-
-        box-shadow:
-          0 30px 70px rgba(0, 0, 0, 0.32),
-          inset 0 1px rgba(255, 255, 255, 0.035);
+        z-index: 1;
       }
-
-      .live-control::after {
-        content: "";
-
-        position: absolute;
-
-        width: 150px;
-        height: 150px;
-
-        top: -80px;
-        right: -60px;
-
-        border-radius: 50%;
-
-        background: var(--cyan);
-
-        filter: blur(90px);
-
-        opacity: 0.13;
+      .quick-stat strong {
+        display: block;
+        font-family: "Space Grotesk";
+        font-size: 22px;
+        color: var(--text);
       }
-
-      .control-label {
-        display: flex;
-
-        justify-content: space-between;
-        align-items: center;
-
-        gap: 10px;
-
-        margin-bottom: 28px;
-      }
-
-      .control-label span:first-child {
+      .quick-stat span {
         color: var(--muted);
-
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 800;
-
+        text-transform: uppercase;
         letter-spacing: 0.12em;
-
-        text-transform: uppercase;
       }
 
-      .pkt-badge {
-        padding: 5px 8px;
-
-        border-radius: 6px;
-
-        background: rgba(25, 231, 255, 0.08);
-
-        color: var(--cyan);
-
-        font-size: 9px;
-        font-weight: 800;
-      }
-
-      #digital-time {
-        font-family: "Space Grotesk", sans-serif;
-
-        font-size: clamp(43px, 5vw, 61px);
-
-        font-weight: 700;
-
-        line-height: 1;
-
-        letter-spacing: -0.05em;
-
-        color: var(--white);
-      }
-
-      #full-date {
-        margin-top: 10px;
-
-        color: var(--muted);
-
-        font-size: 12px;
-        font-weight: 600;
-      }
-
-      .control-divider {
-        height: 1px;
-
-        margin: 25px 0;
-
-        background: var(--border);
-      }
-
-      .current-operation-label {
-        margin-bottom: 8px;
-
-        color: var(--muted);
-
-        font-size: 9px;
-        font-weight: 800;
-
-        letter-spacing: 0.13em;
-
-        text-transform: uppercase;
-      }
-
-      #current-operation {
-        font-family: "Space Grotesk", sans-serif;
-
-        font-size: 18px;
-
-        line-height: 1.35;
-
-        color: var(--white);
-      }
-
-      #operation-subtitle {
-        margin-top: 7px;
-
-        color: var(--muted);
-
-        font-size: 11px;
-
-        line-height: 1.6;
-      }
-
-      /* =========================
-         LIVE BANNER
-      ========================= */
-
-      .live-banner {
-        margin-bottom: 28px;
-
+      .clock-card {
+        padding: 28px;
         display: flex;
-
+        flex-direction: column;
+        justify-content: center;
+      }
+      .clock-top {
+        display: flex;
         align-items: center;
         justify-content: space-between;
-
-        gap: 30px;
-
-        padding: 19px 22px;
-
-        border: 1px solid var(--border);
-
-        border-radius: 16px;
-
-        background: rgba(10, 14, 23, 0.72);
-
-        backdrop-filter: blur(15px);
+        gap: 10px;
       }
-
-      .live-banner-left {
-        display: flex;
-
-        align-items: center;
-
-        gap: 13px;
-      }
-
-      .live-signal {
-        width: 11px;
-        height: 11px;
-
-        flex: 0 0 auto;
-
-        border-radius: 50%;
-
-        background: var(--cyan);
-
-        box-shadow:
-          0 0 0 6px rgba(25, 231, 255, 0.07),
-          0 0 18px var(--cyan);
-
-        animation: signal 1.5s infinite;
-      }
-
-      @keyframes signal {
-        50% {
-          box-shadow:
-            0 0 0 11px rgba(25, 231, 255, 0),
-            0 0 22px var(--cyan);
-        }
-      }
-
-      #live-banner-title {
-        font-size: 13px;
-
-        font-weight: 800;
-
-        color: var(--white);
-      }
-
-      #live-banner-description {
-        margin-top: 3px;
-
+      .label {
         color: var(--muted);
-
-        font-size: 11px;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
       }
-
-      .banner-counter {
-        white-space: nowrap;
-
-        padding: 8px 12px;
-
+      .pkt {
+        color: var(--gold-2);
+        font-size: 9px;
+        font-weight: 800;
+        background: var(--gold-soft);
+        padding: 6px 8px;
         border-radius: 8px;
-
-        background: rgba(255, 255, 255, 0.035);
-
-        color: var(--cyan);
-
-        font-family: "Space Grotesk", sans-serif;
-
-        font-size: 12px;
+      }
+      #clock {
+        margin-top: 24px;
+        font-family: "Space Grotesk";
+        font-size: clamp(40px, 5vw, 58px);
         font-weight: 700;
-      }
-
-      /* =========================
-         METRICS
-      ========================= */
-
-      .metrics {
-        display: grid;
-
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-
-        gap: 15px;
-
-        margin-bottom: 75px;
-      }
-
-      .metric {
-        position: relative;
-
-        overflow: hidden;
-
-        min-height: 142px;
-
-        padding: 23px;
-
-        border: 1px solid var(--border);
-
-        border-radius: 17px;
-
-        background: rgba(10, 14, 23, 0.72);
-
-        transition:
-          transform 0.25s ease,
-          border-color 0.25s ease;
-      }
-
-      .metric:hover {
-        transform: translateY(-4px);
-
-        border-color: rgba(25, 231, 255, 0.22);
-      }
-
-      .metric-number {
-        margin-bottom: 8px;
-
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 32px;
-        font-weight: 700;
-
         letter-spacing: -0.04em;
       }
-
-      .metric-title {
+      #date {
+        margin-top: 8px;
         color: var(--muted);
-
-        font-size: 10px;
-        font-weight: 800;
-
-        letter-spacing: 0.1em;
-
-        text-transform: uppercase;
+        font-size: 12px;
       }
-
-      .metric-note {
-        margin-top: 9px;
-
-        color: #59677b;
-
-        font-size: 10px;
+      .clock-line {
+        height: 1px;
+        background: var(--border);
+        margin: 24px 0;
       }
-
-      /* =========================
-         SECTION HEADER
-      ========================= */
+      #day-status {
+        font-family: "Space Grotesk";
+        font-size: 20px;
+      }
+      #day-status-sub {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.6;
+        margin-top: 7px;
+      }
 
       .section {
-        padding-bottom: 85px;
+        padding: 36px 0 74px;
       }
-
       .section-head {
-        margin-bottom: 30px;
-
         display: flex;
-
-        align-items: flex-end;
         justify-content: space-between;
-
-        gap: 30px;
+        align-items: end;
+        gap: 28px;
+        margin-bottom: 24px;
       }
-
-      .eyebrow {
-        margin-bottom: 9px;
-
-        color: var(--cyan);
-
-        font-size: 10px;
-        font-weight: 800;
-
-        letter-spacing: 0.16em;
-
-        text-transform: uppercase;
-      }
-
       .section-head h2 {
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: clamp(31px, 4vw, 46px);
-
-        line-height: 1.05;
-
-        letter-spacing: -0.04em;
+        font-family: "Playfair Display";
+        font-size: clamp(34px, 4vw, 48px);
+        letter-spacing: -0.03em;
+      }
+      .section-head p {
+        max-width: 500px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.7;
+      }
+      .eyebrow {
+        color: var(--gold-2);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
       }
 
-      .section-head p {
-        max-width: 440px;
+      .card {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
 
+      .daily-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 20px;
+        align-items: start;
+      }
+      .daily-list {
+        padding: 10px 22px;
+      }
+      .lecture {
+        display: grid;
+        grid-template-columns: 132px 20px 1fr;
+        gap: 16px;
+        align-items: stretch;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .lecture:last-child {
+        border-bottom: 0;
+      }
+      .lecture-time {
+        text-align: right;
+        padding-top: 5px;
+      }
+      .lecture-time strong {
+        display: block;
+        font-family: "Space Grotesk";
+        font-size: 14px;
+      }
+      .lecture-time span {
+        display: block;
         color: var(--muted);
+        font-size: 10px;
+        margin-top: 4px;
+      }
+      .track {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .track::after {
+        content: "";
+        position: absolute;
+        top: 13px;
+        bottom: -30px;
+        width: 1px;
+        background: var(--border);
+      }
+      .lecture:last-child .track::after {
+        display: none;
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        margin-top: 8px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 4px var(--gold-soft);
+        z-index: 2;
+      }
+      .lecture-content {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 15px 16px;
+        background: color-mix(in srgb, var(--surface-solid) 72%, transparent);
+      }
+      .lecture-content h3 {
+        font-family: "Space Grotesk";
+        font-size: 17px;
+      }
+      .lecture-meta {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 1.55;
+      }
+      .lecture.live .lecture-content {
+        border-color: var(--gold);
+        box-shadow: 0 0 30px var(--gold-soft);
+      }
+      .lecture.complete {
+        opacity: 0.55;
+      }
+      .lecture.live .dot {
+        background: var(--gold-2);
+        box-shadow:
+          0 0 0 6px var(--gold-soft),
+          0 0 18px var(--gold);
+      }
 
+      .side-stack {
+        display: grid;
+        gap: 16px;
+      }
+      .info-card {
+        padding: 22px;
+      }
+      .info-card h3 {
+        font-family: "Space Grotesk";
+        margin-top: 8px;
+        font-size: 22px;
+      }
+      .info-card p {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.6;
+        margin-top: 8px;
+      }
+      .mini-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .mini-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .mini-row strong {
+        color: var(--text);
+      }
+
+      .holiday-card {
+        padding: 30px;
+        text-align: center;
+        border: 1px dashed var(--border-strong);
+        border-radius: 18px;
+        background: var(--gold-soft);
+      }
+      .holiday-card .holiday-icon {
+        font-size: 34px;
+      }
+      .holiday-card h3 {
+        margin-top: 10px;
+        font-family: "Playfair Display";
+        font-size: 28px;
+      }
+      .holiday-card p {
+        margin: 8px auto 0;
+        max-width: 520px;
+        color: var(--muted);
         font-size: 12px;
-
         line-height: 1.7;
       }
 
-      /* =========================
-         TIMELINE
-      ========================= */
-
-      .schedule-layout {
-        display: grid;
-
-        grid-template-columns:
-          minmax(0, 1.55fr)
-          minmax(300px, 0.45fr);
-
-        gap: 24px;
-
-        align-items: start;
+      .table-wrap {
+        overflow-x: auto;
       }
-
-      .timeline-panel {
-        border: 1px solid var(--border);
-
-        border-radius: 24px;
-
-        padding: 8px 24px;
-
-        background: rgba(8, 12, 20, 0.7);
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 980px;
       }
-
-      .lecture-item {
-        --lecture-color: var(--cyan);
-
-        position: relative;
-
-        display: grid;
-
-        grid-template-columns: 105px 36px minmax(0, 1fr);
-
-        gap: 15px;
-
-        min-height: 135px;
-
-        padding: 20px 0;
+      th,
+      td {
+        border-bottom: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        vertical-align: top;
       }
-
-      .lecture-time {
-        padding-top: 4px;
-
-        text-align: right;
+      th:last-child,
+      td:last-child {
+        border-right: 0;
       }
-
-      .lecture-time strong {
-        display: block;
-
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 15px;
-      }
-
-      .lecture-time span {
-        display: block;
-
-        margin-top: 4px;
-
-        color: var(--muted);
-
+      thead th {
+        padding: 15px 14px;
+        background: var(--gold-soft);
+        color: var(--gold-2);
         font-size: 10px;
-        font-weight: 600;
-      }
-
-      .timeline-track {
-        position: relative;
-
-        display: flex;
-
-        justify-content: center;
-      }
-
-      .timeline-track::after {
-        content: "";
-
-        position: absolute;
-
-        top: 24px;
-        bottom: -40px;
-
-        width: 1px;
-
-        background: var(--border);
-      }
-
-      .lecture-item:last-child .timeline-track::after {
-        display: none;
-      }
-
-      .timeline-node {
-        position: relative;
-
-        z-index: 2;
-
-        width: 13px;
-        height: 13px;
-
-        margin-top: 8px;
-
-        border: 3px solid var(--surface);
-
-        border-radius: 50%;
-
-        background: #334155;
-
-        box-shadow: 0 0 0 1px #334155;
-      }
-
-      .lecture-content {
-        position: relative;
-
-        overflow: hidden;
-
-        padding: 17px 18px;
-
-        border: 1px solid var(--border);
-
-        border-radius: 14px;
-
-        background: rgba(255, 255, 255, 0.018);
-
-        transition:
-          transform 0.25s ease,
-          border-color 0.25s ease,
-          background 0.25s ease;
-      }
-
-      .lecture-content:hover {
-        transform: translateX(4px);
-
-        border-color: color-mix(in srgb, var(--lecture-color) 30%, transparent);
-      }
-
-      .lecture-content::before {
-        content: "";
-
-        position: absolute;
-
-        top: 0;
-        bottom: 0;
-        left: 0;
-
-        width: 3px;
-
-        background: var(--lecture-color);
-
-        opacity: 0.55;
-      }
-
-      .lecture-top {
-        display: flex;
-
-        align-items: center;
-        justify-content: space-between;
-
-        gap: 20px;
-
-        margin-bottom: 8px;
-      }
-
-      .lecture-title {
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 19px;
-
-        font-weight: 700;
-      }
-
-      .lecture-badge {
-        white-space: nowrap;
-
-        padding: 5px 8px;
-
-        border-radius: 6px;
-
-        background: rgba(255, 255, 255, 0.05);
-
-        color: var(--muted);
-
-        font-size: 8px;
-        font-weight: 800;
-
-        letter-spacing: 0.08em;
-
+        letter-spacing: 0.11em;
         text-transform: uppercase;
+        text-align: left;
+      }
+      tbody th {
+        width: 180px;
+        padding: 14px;
+        font-family: "Space Grotesk";
+        font-size: 12px;
+        text-align: left;
+        background: color-mix(in srgb, var(--surface-solid) 74%, transparent);
+      }
+      td {
+        padding: 12px;
+        min-width: 138px;
       }
 
-      .lecture-content p {
-        color: var(--muted);
-
-        font-size: 11px;
-
-        line-height: 1.6;
-      }
-
-      .lecture-item.upcoming .timeline-node {
-        background: var(--lecture-color);
-
-        box-shadow:
-          0 0 0 1px var(--lecture-color),
-          0 0 15px color-mix(in srgb, var(--lecture-color) 45%, transparent);
-      }
-
-      .lecture-item.live .lecture-content {
-        border-color: color-mix(in srgb, var(--lecture-color) 50%, transparent);
-
-        background:
-          linear-gradient(
-            110deg,
-            color-mix(in srgb, var(--lecture-color) 9%, transparent),
-            transparent
-          ),
-          rgba(255, 255, 255, 0.018);
-
-        box-shadow: 0 0 30px rgba(25, 231, 255, 0.06);
-      }
-
-      .lecture-item.live .timeline-node {
-        background: var(--lecture-color);
-
-        box-shadow:
-          0 0 0 5px color-mix(in srgb, var(--lecture-color) 12%, transparent),
-          0 0 20px var(--lecture-color);
-      }
-
-      .lecture-item.live .lecture-badge {
-        background: color-mix(in srgb, var(--lecture-color) 14%, transparent);
-
-        color: var(--lecture-color);
-      }
-
-      .lecture-item.complete {
-        opacity: 0.52;
-      }
-
-      .lecture-item.complete .timeline-node {
-        background: var(--green);
-
-        box-shadow: 0 0 0 1px var(--green);
-      }
-
-      .lecture-item.complete .lecture-badge {
-        color: var(--green);
-
-        background: rgba(35, 219, 140, 0.08);
-      }
-
-      /* =========================
-         SIDE PANEL
-      ========================= */
-
-      .side-panel {
-        position: sticky;
-
-        top: 95px;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 16px;
-      }
-
-      .next-card,
-      .workload-card {
-        padding: 23px;
-
+      .slot {
+        display: block;
         border: 1px solid var(--border);
-
-        border-radius: 19px;
-
-        background: rgba(10, 14, 23, 0.77);
+        border-left: 3px solid var(--gold);
+        border-radius: 10px;
+        padding: 10px;
+        background: color-mix(in srgb, var(--surface-solid) 72%, transparent);
+        margin-bottom: 7px;
       }
-
-      .panel-label {
-        margin-bottom: 17px;
-
+      .slot:last-child {
+        margin-bottom: 0;
+      }
+      .slot strong {
+        display: block;
+        font-size: 11px;
+      }
+      .slot span {
+        display: block;
+        margin-top: 4px;
         color: var(--muted);
-
         font-size: 9px;
-        font-weight: 800;
-
-        letter-spacing: 0.14em;
-
-        text-transform: uppercase;
       }
-
-      #next-class-name {
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 23px;
-
-        line-height: 1.2;
+      .slot.university {
+        border-left-color: var(--gold-2);
       }
-
-      #next-class-time {
-        margin-top: 8px;
-
-        color: var(--cyan);
-
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      .countdown-box {
-        margin-top: 21px;
-
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 7px;
-      }
-
-      .countdown-unit {
-        padding: 12px 6px;
-
+      .off-cell {
+        background: var(--gold-soft);
         text-align: center;
-
-        border: 1px solid var(--border);
-
-        border-radius: 10px;
-
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      .countdown-unit strong {
-        display: block;
-
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 19px;
-      }
-
-      .countdown-unit span {
-        color: var(--muted);
-
-        font-size: 7px;
+        color: var(--gold-2);
+        font-size: 10px;
         font-weight: 800;
-
-        text-transform: uppercase;
-
         letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .jumuah-cell {
+        background: color-mix(in srgb, var(--gold-soft) 75%, transparent);
       }
 
-      .progress-heading {
-        display: flex;
-
-        justify-content: space-between;
-
-        margin-bottom: 10px;
-
-        color: var(--muted);
-
-        font-size: 10px;
-        font-weight: 700;
-      }
-
-      .progress-heading span:last-child {
-        color: var(--white);
-      }
-
-      .progress-track {
-        overflow: hidden;
-
-        height: 7px;
-
-        border-radius: 10px;
-
-        background: rgba(255, 255, 255, 0.06);
-      }
-
-      .progress-fill {
-        width: 0;
-
-        height: 100%;
-
-        border-radius: inherit;
-
-        background: linear-gradient(90deg, var(--cyan), var(--purple));
-
-        transition: width 0.4s ease;
-      }
-
-      .workload-details {
-        margin-top: 18px;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 12px;
-      }
-
-      .workload-row {
-        display: flex;
-
-        justify-content: space-between;
-
-        color: var(--muted);
-
-        font-size: 11px;
-      }
-
-      .workload-row strong {
-        color: var(--white);
-      }
-
-      /* =========================
-         BREAK WINDOWS
-      ========================= */
-
-      .break-grid {
+      .hours-grid {
         display: grid;
-
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        gap: 15px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
       }
-
-      .break-box {
-        padding: 22px;
-
-        border: 1px dashed rgba(149, 104, 255, 0.3);
-
-        border-radius: 15px;
-
-        background: rgba(149, 104, 255, 0.045);
+      .hours-card {
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
       }
-
-      .break-icon {
-        margin-bottom: 13px;
-
-        font-size: 23px;
-      }
-
-      .break-box h3 {
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 17px;
-      }
-
-      .break-box .break-time {
-        margin-top: 4px;
-
-        color: var(--purple);
-
-        font-size: 11px;
-        font-weight: 700;
-      }
-
-      .break-box p {
-        margin-top: 10px;
-
+      .hours-card .course {
         color: var(--muted);
-
         font-size: 10px;
-
+        line-height: 1.4;
+        min-height: 30px;
+      }
+      .hours-card .total {
+        margin-top: 12px;
+        font-family: "Space Grotesk";
+        font-size: 25px;
+        color: var(--gold-2);
+      }
+      .hours-card .details {
+        margin-top: 7px;
+        color: var(--faint);
+        font-size: 9px;
         line-height: 1.6;
       }
 
-      /* =========================
-         CONTACT
-      ========================= */
-
-      .contact-hub {
-        position: relative;
-
-        overflow: hidden;
-
-        margin-bottom: 80px;
-
-        padding: 45px;
-
-        border: 1px solid var(--border);
-
-        border-radius: 28px;
-
-        background:
-          radial-gradient(
-            circle at 100% 0%,
-            rgba(25, 231, 255, 0.1),
-            transparent 30%
-          ),
-          rgba(10, 14, 23, 0.76);
+      .weekly-summary {
+        margin-top: 16px;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
       }
-
-      .contact-hub::after {
-        content: "FDS";
-
-        position: absolute;
-
-        right: 20px;
-        bottom: -75px;
-
-        font-family: "Space Grotesk", sans-serif;
-
-        font-size: 180px;
-        font-weight: 800;
-
-        color: rgba(255, 255, 255, 0.018);
-
-        pointer-events: none;
+      .weekly-summary strong {
+        font-family: "Space Grotesk";
+        color: var(--gold-2);
+        font-size: 25px;
       }
-
-      .contact-header {
-        max-width: 630px;
-      }
-
-      .contact-header h2 {
-        font-family: "Space Grotesk", sans-serif;
-
-        color: var(--white);
-
-        font-size: 36px;
-
-        letter-spacing: -0.04em;
-      }
-
-      .contact-header p {
-        margin-top: 10px;
-
+      .weekly-summary span {
         color: var(--muted);
+        font-size: 10px;
+      }
 
-        font-size: 12px;
-
-        line-height: 1.8;
+      .holiday-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .holiday-pill {
+        padding: 15px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+      .holiday-pill strong {
+        display: block;
+        font-family: "Space Grotesk";
+        font-size: 13px;
+      }
+      .holiday-pill span {
+        display: block;
+        color: var(--muted);
+        font-size: 9px;
+        margin-top: 4px;
+      }
+      .holiday-pill.special {
+        border-color: var(--border-strong);
+        background: var(--gold-soft);
       }
 
       .contact-grid {
-        position: relative;
-
-        z-index: 2;
-
         display: grid;
-
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-
+        grid-template-columns: repeat(4, 1fr);
         gap: 12px;
-
-        margin-top: 30px;
       }
-
       .contact-card {
-        padding: 18px;
-
-        border: 1px solid var(--border);
-
+        padding: 17px;
         border-radius: 14px;
-
-        background: rgba(5, 7, 13, 0.65);
-
+        border: 1px solid var(--border);
+        background: var(--surface);
         text-decoration: none;
-
-        transition:
-          border-color 0.25s,
-          transform 0.25s;
       }
-
-      .contact-card:hover {
-        transform: translateY(-3px);
-
-        border-color: rgba(25, 231, 255, 0.3);
-      }
-
       .contact-card label {
         display: block;
-
-        margin-bottom: 7px;
-
         color: var(--muted);
-
         font-size: 8px;
         font-weight: 800;
-
-        letter-spacing: 0.12em;
-
         text-transform: uppercase;
+        letter-spacing: 0.11em;
       }
-
       .contact-card strong {
-        color: var(--white);
-
-        font-size: 12px;
-
+        display: block;
+        margin-top: 7px;
+        font-size: 11px;
         word-break: break-word;
       }
 
-      /* =========================
-         FOOTER
-      ========================= */
-
       footer {
-        padding: 28px 5%;
-
         border-top: 1px solid var(--border);
-
+        padding: 28px 5%;
         text-align: center;
-
-        color: #516075;
-
+        color: var(--muted);
         font-size: 10px;
-        font-weight: 600;
-
-        letter-spacing: 0.04em;
       }
-
       footer strong {
-        color: #8090a7;
+        color: var(--gold-2);
       }
 
-      /* =========================
-         RESPONSIVE
-      ========================= */
-
-      @media (max-width: 1050px) {
-        .hero-layout {
+      @media (max-width: 1080px) {
+        .hero-grid,
+        .daily-layout {
           grid-template-columns: 1fr;
-
-          gap: 35px;
         }
-
-        .live-control {
-          max-width: 600px;
-        }
-
-        .metrics {
+        .hours-grid {
           grid-template-columns: repeat(2, 1fr);
         }
-
-        .schedule-layout {
-          grid-template-columns: 1fr;
+        .holiday-strip {
+          grid-template-columns: repeat(2, 1fr);
         }
-
-        .side-panel {
-          position: static;
-
-          display: grid;
-
-          grid-template-columns: 1fr 1fr;
-        }
-
         .contact-grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
 
       @media (max-width: 760px) {
-        .navbar {
-          padding: 12px 5%;
-        }
-
-        .nav-links,
-        .nav-status {
+        .nav-links {
           display: none;
         }
-
         .hero {
-          padding-top: 55px;
+          padding-top: 44px;
         }
-
-        .hero h1 {
-          font-size: 51px;
+        .hero-copy,
+        .clock-card {
+          border-radius: 20px;
         }
-
-        .hero-mini-stats {
-          gap: 20px;
-        }
-
-        .metrics {
-          grid-template-columns: 1fr 1fr;
-        }
-
         .section-head {
           align-items: flex-start;
-
           flex-direction: column;
         }
-
-        .lecture-item {
-          grid-template-columns: 73px 23px 1fr;
-
-          gap: 10px;
-        }
-
-        .timeline-panel {
-          padding: 8px 13px;
-        }
-
-        .lecture-time strong {
-          font-size: 12px;
-        }
-
-        .lecture-time span {
-          font-size: 8px;
-        }
-
-        .lecture-title {
-          font-size: 16px;
-        }
-
-        .lecture-top {
-          align-items: flex-start;
-        }
-
-        .lecture-badge {
-          font-size: 7px;
-        }
-
-        .side-panel {
+        .lecture {
           grid-template-columns: 1fr;
+          gap: 8px;
         }
-
-        .break-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .contact-hub {
-          padding: 30px 20px;
-        }
-
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .live-banner {
-          align-items: flex-start;
-
-          flex-direction: column;
-        }
-      }
-
-      @media (max-width: 520px) {
-        .brand-copy h2 {
-          font-size: 15px;
-        }
-
-        .hero h1 {
-          font-size: 44px;
-        }
-
-        .hero-description {
-          font-size: 13px;
-        }
-
-        .metrics {
-          grid-template-columns: 1fr;
-        }
-
-        .lecture-item {
-          grid-template-columns: 1fr;
-
-          padding: 11px 0;
-        }
-
         .lecture-time {
           text-align: left;
-
           display: flex;
-
-          gap: 10px;
-
+          gap: 9px;
           align-items: center;
         }
-
-        .lecture-time strong,
         .lecture-time span {
-          margin: 0;
+          margin-top: 0;
         }
-
-        .timeline-track {
+        .track {
           display: none;
         }
-
-        .contact-header h2 {
-          font-size: 29px;
+        .hours-grid,
+        .holiday-strip,
+        .contact-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <nav class="navbar">
-      <div class="nav-inner">
+      <div class="container nav-inner">
         <a class="brand" href="#top">
-          <div class="brand-icon">F</div>
-
+          <div class="brand-mark">F</div>
           <div class="brand-copy">
-            <h2>Fatir Dev Studio</h2>
-            <span>Technology Academy</span>
+            <strong>Fatir Dev Studio</strong>
+            <span>FDS Lecture Command Center</span>
           </div>
         </a>
 
-        <div class="nav-links">
-          <a href="#top" class="active">Command Center</a>
-          <a href="#schedule">Schedule</a>
-          <a href="#breaks">Breaks</a>
-          <a href="#contact">Operations</a>
-        </div>
-
-        <div class="nav-status">
-          <span class="status-dot"></span>
-          SYSTEM ONLINE
+        <div class="nav-actions">
+          <div class="nav-links">
+            <a href="#today">Today</a>
+            <a href="#university">University</a>
+            <a href="#weekly">Weekly</a>
+            <a href="#hours">Hours</a>
+          </div>
+          <button
+            class="theme-btn"
+            id="themeToggle"
+            aria-label="Toggle light and dark mode"
+          >
+            ☀
+          </button>
         </div>
       </div>
     </nav>
 
     <main id="top">
       <section class="hero">
-        <div class="container hero-layout">
-          <div>
-            <div class="hero-kicker">2026 Training Operations</div>
-
-            <h1>
-              Lecture
-              <span>Command Center.</span>
-            </h1>
-
-            <p class="hero-description">
-              Real-time lecture operations for Fatir Dev Studio. Track today's
-              sessions, active classes, upcoming lectures, break windows and
-              daily academy workload from one synchronized dashboard.
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="kicker">2026 · Updated Weekly Operations</div>
+            <h1>Lecture <span>Command Center.</span></h1>
+            <p>
+              One synchronized timetable for Fatir Dev Studio. Students can
+              check today's classes, the complete weekly lecture plan, weekly
+              study hours and designated off days from one clean dashboard.
             </p>
 
-            <div class="hero-mini-stats">
-              <div class="hero-mini-stat">
-                <strong>07</strong>
-                <span>Daily Lectures</span>
+            <div class="quick-stats">
+              <div class="quick-stat">
+                <strong>8</strong><span>Active Batches</span>
               </div>
-
-              <div class="hero-mini-stat">
-                <strong>4h 40m</strong>
-                <span>Daily Teaching</span>
+              <div class="quick-stat">
+                <strong>4</strong><span>Teaching Days</span>
               </div>
-
-              <div class="hero-mini-stat">
-                <strong>Mon — Fri</strong>
-                <span>Teaching Cycle</span>
+              <div class="quick-stat">
+                <strong>27h 20m</strong><span>Weekly Batch Hours</span>
+              </div>
+              <div class="quick-stat">
+                <strong>Thu · Sat · Sun</strong><span>Studio Off Days</span>
               </div>
             </div>
           </div>
 
-          <div class="live-control">
-            <div class="control-label">
-              <span>Studio Local Time</span>
-              <span class="pkt-badge">PKT · UTC+5</span>
+          <div class="clock-card">
+            <div class="clock-top">
+              <div class="label">Pakistan Standard Time</div>
+              <div class="pkt">PKT · UTC+5</div>
             </div>
-
-            <div id="digital-time">--:--:--</div>
-
-            <div id="full-date">Loading Pakistan time...</div>
-
-            <div class="control-divider"></div>
-
-            <div class="current-operation-label">Current Operation</div>
-
-            <div id="current-operation">Checking academy schedule...</div>
-
-            <div id="operation-subtitle">Synchronizing lecture matrix.</div>
+            <div id="clock">--:--:--</div>
+            <div id="date">Loading date...</div>
+            <div class="clock-line"></div>
+            <div class="label">Today's Studio Status</div>
+            <div id="day-status">Checking timetable...</div>
+            <div id="day-status-sub">Synchronizing daily schedule.</div>
           </div>
         </div>
       </section>
 
-      <section>
-        <div class="container">
-          <div class="live-banner">
-            <div class="live-banner-left">
-              <div class="live-signal"></div>
-
-              <div>
-                <div id="live-banner-title">Synchronizing schedule...</div>
-
-                <div id="live-banner-description">
-                  Fatir Dev Studio lecture control system.
-                </div>
-              </div>
-            </div>
-
-            <div class="banner-counter" id="banner-counter">PKT LIVE</div>
-          </div>
-
-          <div class="metrics">
-            <div class="metric">
-              <div class="metric-number">07</div>
-
-              <div class="metric-title">Daily Lectures</div>
-
-              <div class="metric-note">Seven technical learning sessions</div>
-            </div>
-
-            <div class="metric">
-              <div class="metric-number">4h 40m</div>
-
-              <div class="metric-title">Daily Teaching Load</div>
-
-              <div class="metric-note">280 minutes of active teaching</div>
-            </div>
-
-            <div class="metric">
-              <div class="metric-number">23h 20m</div>
-
-              <div class="metric-title">Weekly Teaching Load</div>
-
-              <div class="metric-note">Based on Monday–Friday operations</div>
-            </div>
-
-            <div class="metric">
-              <div class="metric-number" id="completed-count">00 / 07</div>
-
-              <div class="metric-title">Today's Progress</div>
-
-              <div class="metric-note" id="today-status">
-                Calculating today's progress
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="schedule">
+      <section class="section" id="today">
         <div class="container">
           <div class="section-head">
             <div>
-              <div class="eyebrow">Daily Operations Matrix</div>
-
-              <h2>Today's Lecture Timeline</h2>
+              <div class="eyebrow">Daily View</div>
+              <h2>Today's FDS Lectures</h2>
             </div>
-
             <p>
-              The same lecture structure is scheduled Monday through Friday.
-              Status indicators automatically update according to Pakistan
-              Standard Time.
+              The list below changes automatically according to Pakistan time
+              and shows only today's Fatir Dev Studio classes.
             </p>
           </div>
 
-          <div class="schedule-layout">
-            <div class="timeline-panel" id="lecture-timeline"></div>
+          <div class="daily-layout">
+            <div class="card daily-list" id="dailyList"></div>
 
-            <aside class="side-panel">
-              <div class="next-card">
-                <div class="panel-label">Next Lecture</div>
-
-                <div id="next-class-name">Calculating...</div>
-
-                <div id="next-class-time">--</div>
-
-                <div class="countdown-box">
-                  <div class="countdown-unit">
-                    <strong id="countdown-hours">00</strong>
-                    <span>Hours</span>
+            <div class="side-stack">
+              <div class="card info-card">
+                <div class="label">Next Lecture</div>
+                <h3 id="nextLectureName">Calculating...</h3>
+                <p id="nextLectureTime">--</p>
+                <div class="mini-list">
+                  <div class="mini-row">
+                    <span>Today's sessions</span
+                    ><strong id="todayCount">0</strong>
                   </div>
-
-                  <div class="countdown-unit">
-                    <strong id="countdown-minutes">00</strong>
-                    <span>Minutes</span>
+                  <div class="mini-row">
+                    <span>Today's teaching</span
+                    ><strong id="todayHours">0m</strong>
                   </div>
-
-                  <div class="countdown-unit">
-                    <strong id="countdown-seconds">00</strong>
-                    <span>Seconds</span>
+                  <div class="mini-row">
+                    <span>Day type</span><strong id="todayType">--</strong>
                   </div>
                 </div>
               </div>
 
-              <div class="workload-card">
-                <div class="panel-label">Daily Completion</div>
-
-                <div class="progress-heading">
-                  <span>Lecture Progress</span>
-                  <span id="progress-percent">0%</span>
-                </div>
-
-                <div class="progress-track">
-                  <div class="progress-fill" id="progress-fill"></div>
-                </div>
-
-                <div class="workload-details">
-                  <div class="workload-row">
-                    <span>Total Sessions</span>
-                    <strong>7</strong>
-                  </div>
-
-                  <div class="workload-row">
-                    <span>Lecture Duration</span>
-                    <strong>40 min each</strong>
-                  </div>
-
-                  <div class="workload-row">
-                    <span>Teaching Window</span>
-                    <strong>4:00 – 9:40 PM</strong>
-                  </div>
-
-                  <div class="workload-row">
-                    <span>Teaching Days</span>
-                    <strong>Mon – Fri</strong>
-                  </div>
-                </div>
+              <div class="card info-card">
+                <div class="label">Studio Weekly Cycle</div>
+                <h3>Mon · Tue · Wed · Fri</h3>
+                <p>
+                  Thursday, Saturday and Sunday are studio off days. Friday
+                  remains an active teaching day and is highlighted separately
+                  as Jumu'ah Day.
+                </p>
               </div>
-            </aside>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="breaks">
+      <section class="section" id="university">
         <div class="container">
           <div class="section-head">
             <div>
-              <div class="eyebrow">Recovery & Preparation</div>
-
-              <h2>Studio Break Windows</h2>
+              <div class="eyebrow">Instructor Schedule</div>
+              <h2>University Timetable</h2>
             </div>
-
             <p>
-              Scheduled prayer and preparation windows separate major teaching
-              blocks and provide time for reset and student support.
+              Your university classes are shown here so academy timings can be
+              checked against them without mixing the two schedules.
             </p>
           </div>
 
-          <div class="break-grid">
-            <div class="break-box">
-              <div class="break-icon">🕌</div>
+          <div class="card table-wrap">
+            <table id="universityTable"></table>
+          </div>
+        </div>
+      </section>
 
-              <h3>Namaz Break</h3>
-
-              <div class="break-time">5:20 PM — 6:00 PM</div>
-
-              <p>
-                A 40-minute prayer and reset window before the Agentic AI and
-                evening development sessions.
-              </p>
+      <section class="section" id="weekly">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Weekly View</div>
+              <h2>Complete FDS Timetable</h2>
             </div>
+            <p>
+              Each batch can see its complete weekly schedule. Off days are
+              clearly marked and Friday is highlighted as an active Jumu'ah
+              teaching day.
+            </p>
+          </div>
 
-            <div class="break-box">
-              <div class="break-icon">🕌</div>
+          <div class="card table-wrap">
+            <table id="academyTable"></table>
+          </div>
 
-              <h3>Namaz Break</h3>
-
-              <div class="break-time">7:20 PM — 7:40 PM</div>
-
-              <p>
-                A 20-minute prayer and preparation break before Batch 4 and the
-                final evening sessions.
-              </p>
+          <div class="holiday-strip">
+            <div class="holiday-pill">
+              <strong>Thursday</strong><span>Studio Off Day</span>
+            </div>
+            <div class="holiday-pill special">
+              <strong>Friday</strong><span>Jumu'ah Day · Studio Active</span>
+            </div>
+            <div class="holiday-pill">
+              <strong>Saturday</strong><span>Weekend Off</span>
+            </div>
+            <div class="holiday-pill">
+              <strong>Sunday</strong><span>Weekend Off</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact">
+      <section class="section" id="hours">
         <div class="container">
-          <div class="contact-hub">
-            <div class="contact-header">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Weekly Duration</div>
+              <h2>Hours Per Batch</h2>
+            </div>
+            <p>
+              Weekly duration is calculated from the timetable itself and
+              displayed in hours, minutes and seconds.
+            </p>
+          </div>
+
+          <div class="hours-grid" id="hoursGrid"></div>
+
+          <div class="card weekly-summary">
+            <div>
+              <div class="label">Combined Weekly Batch Time</div>
+              <strong id="grandTotal">27h 20m</strong>
+            </div>
+            <span id="grandTotalDetail">1,640 minutes · 98,400 seconds</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
               <div class="eyebrow">Academy Operations</div>
-
               <h2>Fatir Dev Studio</h2>
-
-              <p>
-                Course enrollment, student support, technical training
-                information and academy operations can be managed through the
-                following channels.
-              </p>
             </div>
+            <p>
+              For course support, class information and academy operations, use
+              the official FDS channels below.
+            </p>
+          </div>
 
-            <div class="contact-grid">
-              <div class="contact-card">
-                <label>Institute</label>
-
-                <strong>Fatir Dev Studio</strong>
-              </div>
-
-              <a class="contact-card" href="tel:+923348122659">
-                <label>Direct Phone</label>
-
-                <strong>0334-8122659</strong>
-              </a>
-
-              <a
-                class="contact-card"
-                href="https://wa.me/923348122659"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <label>WhatsApp</label>
-
-                <strong>Chat With Studio</strong>
-              </a>
-
-              <a class="contact-card" href="mailto:fatirdevstudio@gmail.com">
-                <label>Email</label>
-
-                <strong>fatirdevstudio@gmail.com</strong>
-              </a>
-
-              <a
-                class="contact-card"
-                href="https://fatirdevstudio.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <label>Main Website</label>
-
-                <strong>fatirdevstudio.netlify.app</strong>
-              </a>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <label>Institute</label><strong>Fatir Dev Studio</strong>
             </div>
+            <a class="contact-card" href="tel:+923348122659"
+              ><label>Phone</label><strong>0334-8122659</strong></a
+            >
+            <a
+              class="contact-card"
+              href="https://wa.me/923348122659"
+              target="_blank"
+              rel="noopener"
+              ><label>WhatsApp</label><strong>Chat With FDS</strong></a
+            >
+            <a class="contact-card" href="mailto:fatirdevstudio@gmail.com"
+              ><label>Email</label><strong>fatirdevstudio@gmail.com</strong></a
+            >
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      © 2026
-      <strong>Fatir Dev Studio</strong>
-      · Technical Training & Software Development
+      © 2026 <strong>FDS · Fatir Dev Studio</strong> · Technical Training &
+      Software Development
     </footer>
 
     <script>
-      /* ============================================
-         FATIR DEV STUDIO UPDATED SCHEDULE
-
-         4:00 - 4:40 PM  Python
-         4:40 - 5:20 PM  Full Stack Development · FSB Batch 6
-
-         5:20 - 6:00 PM  Namaz Break
-
-         6:00 - 6:40 PM  Agentic AI
-         6:40 - 7:20 PM  React Development
-
-         7:20 - 7:40 PM  Namaz Break
-
-         7:40 - 8:20 PM  Batch 4
-         8:20 - 9:00 PM  Batch 7
-         9:00 - 9:40 PM  Batch 5
-      ============================================ */
-
-      const lectures = [
-        {
-          id: 1,
-
-          name: "Python",
-
-          short: "PYTHON",
-
-          description:
-            "Programming fundamentals, problem solving, logic building and practical Python development.",
-
-          start: "16:00",
-
-          end: "16:40",
-
-          displayStart: "4:00 PM",
-
-          displayEnd: "4:40 PM",
-
-          color: "#ffd343",
-        },
-
-        {
-          id: 2,
-
-          name: "Full Stack Development · FSB Batch 6",
-
-          short: "FSB · BATCH 6",
-
-          description:
-            "Full stack web and software development covering frontend, backend, databases and practical development workflows.",
-
-          start: "17:20",
-
-          end: "18:00",
-
-          displayStart: "5:20 PM",
-
-          displayEnd: "6:00 PM",
-
-          color: "#19e7ff",
-        },
-
-        {
-          id: 3,
-
-          name: "Agentic AI",
-
-          short: "AGENTIC AI",
-
-          description:
-            "AI agents, automation workflows, intelligent systems and modern AI development.",
-
-          start: "18:00",
-
-          end: "18:40",
-
-          displayStart: "6:00 PM",
-
-          displayEnd: "6:40 PM",
-
-          color: "#9568ff",
-        },
-
-        {
-          id: 4,
-
-          name: "React Development",
-
-          short: "REACT",
-
-          description:
-            "Component-based frontend development, reusable interfaces and modern React concepts.",
-
-          start: "18:40",
-
-          end: "19:20",
-
-          displayStart: "6:40 PM",
-
-          displayEnd: "7:20 PM",
-
-          color: "#61dafb",
-        },
-
-        {
-          id: 5,
-
-          name: "Batch 4",
-
-          short: "BATCH 4",
-
-          description:
-            "Interactive web development, programming logic, practical projects and frontend development.",
-
-          start: "19:40",
-
-          end: "20:20",
-
-          displayStart: "7:40 PM",
-
-          displayEnd: "8:20 PM",
-
-          color: "#f7df1e",
-        },
-
-        {
-          id: 6,
-
-          name: "Batch 7",
-
-          short: "BATCH 7",
-
-          description:
-            "Structured practical development training focused on building strong technical foundations.",
-
-          start: "20:20",
-
-          end: "21:00",
-
-          displayStart: "8:20 PM",
-
-          displayEnd: "9:00 PM",
-
-          color: "#ff639f",
-        },
-
-        {
-          id: 7,
-
-          name: "Batch 5",
-
-          short: "BATCH 5",
-
-          description:
-            "Hands-on development practice, concepts, projects and progressive skill development.",
-
-          start: "21:00",
-
-          end: "21:40",
-
-          displayStart: "9:00 PM",
-
-          displayEnd: "9:40 PM",
-
-          color: "#4f9dff",
-        },
+      const DAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+      const DAY_NAMES = {
+        MON: "Monday",
+        TUE: "Tuesday",
+        WED: "Wednesday",
+        THU: "Thursday",
+        FRI: "Friday",
+        SAT: "Saturday",
+        SUN: "Sunday",
+      };
+
+      const academySchedule = {
+        MON: [
+          {
+            name: "Full Stack Development · Batch 3",
+            short: "FSD · B3",
+            start: "14:00",
+            end: "15:00",
+          },
+          { name: "Python", short: "PYTHON", start: "17:30", end: "18:15" },
+          {
+            name: "Full Stack Development · Batch 6",
+            short: "FSD · B6",
+            start: "18:15",
+            end: "19:00",
+          },
+          {
+            name: "React Development",
+            short: "REACT",
+            start: "19:00",
+            end: "20:00",
+          },
+          { name: "Batch 4", short: "BATCH 4", start: "20:00", end: "20:50" },
+          { name: "Batch 7", short: "BATCH 7", start: "20:50", end: "21:40" },
+          { name: "Batch 5", short: "BATCH 5", start: "21:40", end: "22:50" },
+        ],
+        TUE: [
+          {
+            name: "Full Stack Development · Batch 3",
+            short: "FSD · B3",
+            start: "15:00",
+            end: "16:00",
+          },
+          { name: "Python", short: "PYTHON", start: "16:30", end: "17:15" },
+          {
+            name: "Full Stack Development · Batch 6",
+            short: "FSD · B6",
+            start: "17:15",
+            end: "18:00",
+          },
+          {
+            name: "Agentic AI",
+            short: "AGENTIC AI",
+            start: "18:00",
+            end: "19:00",
+          },
+          {
+            name: "React Development",
+            short: "REACT",
+            start: "19:00",
+            end: "20:00",
+          },
+          { name: "Batch 4", short: "BATCH 4", start: "20:00", end: "20:50" },
+          { name: "Batch 7", short: "BATCH 7", start: "20:50", end: "21:40" },
+          { name: "Batch 5", short: "BATCH 5", start: "21:40", end: "22:50" },
+        ],
+        WED: [
+          { name: "Python", short: "PYTHON", start: "16:30", end: "17:15" },
+          {
+            name: "Full Stack Development · Batch 6",
+            short: "FSD · B6",
+            start: "17:15",
+            end: "18:00",
+          },
+          {
+            name: "Agentic AI",
+            short: "AGENTIC AI",
+            start: "18:00",
+            end: "19:00",
+          },
+          {
+            name: "React Development",
+            short: "REACT",
+            start: "19:00",
+            end: "20:00",
+          },
+          { name: "Batch 4", short: "BATCH 4", start: "20:00", end: "20:50" },
+          { name: "Batch 7", short: "BATCH 7", start: "20:50", end: "21:40" },
+          { name: "Batch 5", short: "BATCH 5", start: "21:40", end: "22:50" },
+        ],
+        THU: [],
+        FRI: [
+          {
+            name: "Full Stack Development · Batch 3",
+            short: "FSD · B3",
+            start: "16:00",
+            end: "17:00",
+          },
+          { name: "Python", short: "PYTHON", start: "16:30", end: "17:15" },
+          {
+            name: "Full Stack Development · Batch 6",
+            short: "FSD · B6",
+            start: "17:15",
+            end: "18:00",
+          },
+          {
+            name: "Agentic AI",
+            short: "AGENTIC AI",
+            start: "18:00",
+            end: "19:00",
+          },
+          {
+            name: "React Development",
+            short: "REACT",
+            start: "19:00",
+            end: "20:00",
+          },
+          { name: "Batch 4", short: "BATCH 4", start: "20:00", end: "20:50" },
+          { name: "Batch 7", short: "BATCH 7", start: "20:50", end: "21:40" },
+          { name: "Batch 5", short: "BATCH 5", start: "21:40", end: "22:50" },
+        ],
+        SAT: [],
+        SUN: [],
+      };
+
+      const universitySchedule = {
+        MON: [{ name: "CS-146 (A)", start: "15:45", end: "17:15" }],
+        TUE: [],
+        WED: [
+          { name: "MATH-108 (E)", start: "08:00", end: "09:30" },
+          { name: "CS-376 (A)", start: "14:15", end: "15:45" },
+        ],
+        THU: [
+          { name: "CS-241 (E)", start: "08:00", end: "09:30" },
+          { name: "CS-146 (A)", start: "09:30", end: "11:00" },
+          { name: "BS-201 (E)", start: "12:30", end: "14:00" },
+          { name: "CS-242 (E)", start: "14:15", end: "17:15" },
+        ],
+        FRI: [
+          { name: "CS-241 (E)", start: "09:25", end: "10:50" },
+          { name: "CS-376L (A)", start: "10:50", end: "13:40" },
+          { name: "BS-201 (E)", start: "14:15", end: "15:40" },
+        ],
+        SAT: [
+          { name: "MATH-108 (E)", start: "08:00", end: "09:30" },
+          { name: "CS-146L (A)", start: "14:15", end: "17:15" },
+        ],
+        SUN: [],
+      };
+
+      const batchOrder = [
+        "Full Stack Development · Batch 3",
+        "Python",
+        "Full Stack Development · Batch 6",
+        "Agentic AI",
+        "React Development",
+        "Batch 4",
+        "Batch 7",
+        "Batch 5",
       ];
 
-      const weekdays = ["MON", "TUE", "WED", "THU", "FRI"];
-
-      function timeToSeconds(time) {
-        const [hours, minutes] = time.split(":").map(Number);
-
-        return hours * 3600 + minutes * 60;
+      function toMinutes(t) {
+        const [h, m] = t.split(":").map(Number);
+        return h * 60 + m;
       }
 
-      function getPakistanTime() {
-        const formatter = new Intl.DateTimeFormat("en-US", {
+      function formatTime(t) {
+        const [h, m] = t.split(":").map(Number);
+        const suffix = h >= 12 ? "PM" : "AM";
+        const hour = h % 12 || 12;
+        return `${hour}:${String(m).padStart(2, "0")} ${suffix}`;
+      }
+
+      function durationMinutes(start, end) {
+        return toMinutes(end) - toMinutes(start);
+      }
+
+      function formatDuration(minutes) {
+        const h = Math.floor(minutes / 60);
+        const m = minutes % 60;
+        if (h && m) return `${h}h ${m}m`;
+        if (h) return `${h}h`;
+        return `${m}m`;
+      }
+
+      function getPakistanNow() {
+        const fmt = new Intl.DateTimeFormat("en-US", {
           timeZone: "Asia/Karachi",
-
           weekday: "short",
-
           year: "numeric",
-
           month: "long",
-
           day: "numeric",
-
           hour: "2-digit",
-
           minute: "2-digit",
-
           second: "2-digit",
-
           hour12: false,
         });
-
-        const parts = formatter.formatToParts(new Date());
-
-        const getPart = (type) =>
-          parts.find((part) => part.type === type)?.value;
-
-        let hour = Number(getPart("hour"));
-
-        if (hour === 24) {
-          hour = 0;
-        }
-
-        const minute = Number(getPart("minute"));
-        const second = Number(getPart("second"));
-
-        let dayName = getPart("weekday").toUpperCase();
-
-        const dayMap = {
-          MON: "MON",
-          TUE: "TUE",
-          WED: "WED",
-          THU: "THU",
-          FRI: "FRI",
-          SAT: "SAT",
-          SUN: "SUN",
-        };
-
-        dayName = dayMap[dayName] || dayName;
-
+        const parts = fmt.formatToParts(new Date());
+        const get = (type) => parts.find((p) => p.type === type)?.value;
+        let hour = Number(get("hour"));
+        if (hour === 24) hour = 0;
+        const minute = Number(get("minute"));
+        const second = Number(get("second"));
+        const day = get("weekday").toUpperCase();
         return {
           hour,
           minute,
           second,
-          dayName,
-
-          currentSeconds: hour * 3600 + minute * 60 + second,
+          day,
+          currentMinutes: hour * 60 + minute,
         };
       }
 
-      function formatClock12Hour(hour, minute, second) {
-        const suffix = hour >= 12 ? "PM" : "AM";
-
-        let displayHour = hour % 12;
-
-        if (displayHour === 0) {
-          displayHour = 12;
-        }
-
-        return (
-          `${String(displayHour).padStart(2, "0")}:` +
-          `${String(minute).padStart(2, "0")}:` +
-          `${String(second).padStart(2, "0")} ` +
-          suffix
-        );
+      function renderClock() {
+        const now = getPakistanNow();
+        const suffix = now.hour >= 12 ? "PM" : "AM";
+        const hour12 = now.hour % 12 || 12;
+        document.getElementById("clock").textContent =
+          `${String(hour12).padStart(2, "0")}:${String(now.minute).padStart(2, "0")}:${String(now.second).padStart(2, "0")} ${suffix}`;
+        document.getElementById("date").textContent = new Intl.DateTimeFormat(
+          "en-US",
+          {
+            timeZone: "Asia/Karachi",
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          },
+        ).format(new Date());
       }
 
-      /* ============================================
-         RENDER TIMELINE
-      ============================================ */
+      function renderDaily() {
+        const now = getPakistanNow();
+        const list = academySchedule[now.day] || [];
+        const dailyList = document.getElementById("dailyList");
+        const status = document.getElementById("day-status");
+        const statusSub = document.getElementById("day-status-sub");
+        const todayType = document.getElementById("todayType");
 
-      function renderTimeline() {
-        const timeline = document.getElementById("lecture-timeline");
+        document.getElementById("todayCount").textContent = list.length;
+        const todayMinutes = list.reduce(
+          (sum, x) => sum + durationMinutes(x.start, x.end),
+          0,
+        );
+        document.getElementById("todayHours").textContent =
+          formatDuration(todayMinutes);
 
-        const pakistan = getPakistanTime();
+        if (!list.length) {
+          const offLabel =
+            now.day === "THU"
+              ? "Thursday · Studio Off Day"
+              : now.day === "SAT"
+                ? "Saturday · Weekend Off"
+                : "Sunday · Weekend Off";
+          status.textContent = offLabel;
+          statusSub.textContent =
+            "No Fatir Dev Studio lectures are scheduled today.";
+          todayType.textContent = "OFF";
+          dailyList.innerHTML = `
+          <div class="holiday-card">
+            <div class="holiday-icon">✦</div>
+            <h3>${offLabel}</h3>
+            <p>Regular classes resume on the next active studio day. Use the weekly timetable below to check your next lecture.</p>
+          </div>`;
+          document.getElementById("nextLectureName").textContent =
+            "Next active studio day";
+          document.getElementById("nextLectureTime").textContent =
+            findNextLecture(now.day);
+          return;
+        }
 
-        const currentSeconds = pakistan.currentSeconds;
+        todayType.textContent =
+          now.day === "FRI" ? "JUMU'AH · ACTIVE" : "TEACHING DAY";
+        status.textContent =
+          now.day === "FRI"
+            ? "Friday · Jumu'ah Teaching Day"
+            : `${DAY_NAMES[now.day]} · Studio Active`;
+        statusSub.textContent = `${list.length} Fatir Dev Studio session${list.length > 1 ? "s" : ""} scheduled today.`;
 
-        const isTeachingDay = weekdays.includes(pakistan.dayName);
-
-        timeline.innerHTML = "";
-
-        lectures.forEach((lecture) => {
-          const start = timeToSeconds(lecture.start);
-          const end = timeToSeconds(lecture.end);
-
-          let statusClass = "upcoming";
-          let badge = "UPCOMING";
-
-          if (!isTeachingDay) {
-            statusClass = "upcoming";
-            badge = "NEXT CYCLE";
-          } else if (currentSeconds >= end) {
-            statusClass = "complete";
-            badge = "COMPLETED";
-          } else if (currentSeconds >= start && currentSeconds < end) {
-            statusClass = "live";
-            badge = "LIVE NOW";
-          }
-
-          const item = document.createElement("article");
-
-          item.className = `lecture-item ${statusClass}`;
-
-          item.style.setProperty("--lecture-color", lecture.color);
-
-          item.innerHTML = `
-            <div class="lecture-time">
-              <strong>${lecture.displayStart}</strong>
-              <span>${lecture.displayEnd}</span>
-            </div>
-
-            <div class="timeline-track">
-              <div class="timeline-node"></div>
-            </div>
-
+        dailyList.innerHTML = list
+          .map((item) => {
+            const s = toMinutes(item.start);
+            const e = toMinutes(item.end);
+            let cls = "";
+            let badge = "Upcoming";
+            if (now.currentMinutes >= e) {
+              cls = "complete";
+              badge = "Completed";
+            } else if (now.currentMinutes >= s && now.currentMinutes < e) {
+              cls = "live";
+              badge = "Live Now";
+            }
+            return `
+          <article class="lecture ${cls}">
+            <div class="lecture-time"><strong>${formatTime(item.start)}</strong><span>${formatTime(item.end)}</span></div>
+            <div class="track"><div class="dot"></div></div>
             <div class="lecture-content">
-              <div class="lecture-top">
-                <h3 class="lecture-title">
-                  ${lecture.name}
-                </h3>
-
-                <div class="lecture-badge">
-                  ${badge}
-                </div>
-              </div>
-
-              <p>
-                ${lecture.description}
-              </p>
+              <h3>${item.name}</h3>
+              <div class="lecture-meta">${badge} · ${durationMinutes(item.start, item.end)} minutes</div>
             </div>
-          `;
+          </article>`;
+          })
+          .join("");
 
-          timeline.appendChild(item);
-        });
+        const next = list.find((x) => now.currentMinutes < toMinutes(x.start));
+        const live = list.find(
+          (x) =>
+            now.currentMinutes >= toMinutes(x.start) &&
+            now.currentMinutes < toMinutes(x.end),
+        );
+        if (live) {
+          document.getElementById("nextLectureName").textContent =
+            `${live.name} · LIVE`;
+          document.getElementById("nextLectureTime").textContent =
+            `${formatTime(live.start)} — ${formatTime(live.end)}`;
+        } else if (next) {
+          document.getElementById("nextLectureName").textContent = next.name;
+          document.getElementById("nextLectureTime").textContent =
+            `${formatTime(next.start)} — ${formatTime(next.end)}`;
+        } else {
+          document.getElementById("nextLectureName").textContent =
+            "Today's classes completed";
+          document.getElementById("nextLectureTime").textContent =
+            findNextLecture(now.day);
+        }
       }
 
-      /* ============================================
-         DASHBOARD LOGIC
-      ============================================ */
-
-      function updateDashboard() {
-        const pakistan = getPakistanTime();
-
-        const { hour, minute, second, currentSeconds, dayName } = pakistan;
-
-        const isTeachingDay = weekdays.includes(dayName);
-
-        document.getElementById("digital-time").textContent = formatClock12Hour(
-          hour,
-          minute,
-          second,
-        );
-
-        const dateFormatter = new Intl.DateTimeFormat("en-US", {
-          timeZone: "Asia/Karachi",
-
-          weekday: "long",
-
-          year: "numeric",
-
-          month: "long",
-
-          day: "numeric",
-        });
-
-        document.getElementById("full-date").textContent = dateFormatter.format(
-          new Date(),
-        );
-
-        let liveLecture = null;
-        let nextLecture = null;
-        let completed = 0;
-
-        if (isTeachingDay) {
-          lectures.forEach((lecture) => {
-            const start = timeToSeconds(lecture.start);
-            const end = timeToSeconds(lecture.end);
-
-            if (currentSeconds >= end) {
-              completed++;
-            }
-
-            if (currentSeconds >= start && currentSeconds < end) {
-              liveLecture = lecture;
-            }
-
-            if (!nextLecture && currentSeconds < start) {
-              nextLecture = lecture;
-            }
-          });
-        }
-
-        const currentOperation = document.getElementById("current-operation");
-
-        const operationSubtitle = document.getElementById("operation-subtitle");
-
-        const bannerTitle = document.getElementById("live-banner-title");
-
-        const bannerDescription = document.getElementById(
-          "live-banner-description",
-        );
-
-        if (!isTeachingDay) {
-          currentOperation.textContent = "Studio Teaching Cycle Offline";
-
-          operationSubtitle.textContent =
-            "Regular classes operate Monday through Friday.";
-
-          bannerTitle.textContent = "WEEKEND OPERATIONS";
-
-          bannerDescription.textContent =
-            "The next teaching cycle begins Monday at 4:00 PM.";
-        } else if (liveLecture) {
-          currentOperation.textContent = `${liveLecture.name} · LIVE`;
-
-          operationSubtitle.textContent = `${liveLecture.displayStart} — ${liveLecture.displayEnd}`;
-
-          bannerTitle.textContent = `${liveLecture.name.toUpperCase()} SESSION IS LIVE`;
-
-          bannerDescription.textContent = `Active until ${liveLecture.displayEnd} · Fatir Dev Studio`;
-        } else if (completed === lectures.length) {
-          currentOperation.textContent = "Daily Teaching Completed";
-
-          operationSubtitle.textContent =
-            "All seven lectures have been completed for today.";
-
-          bannerTitle.textContent = "TODAY'S OPERATIONS COMPLETE";
-
-          bannerDescription.textContent =
-            "Next teaching cycle begins at 4:00 PM.";
-        } else {
-          currentOperation.textContent = nextLecture
-            ? `Preparing ${nextLecture.name}`
-            : "Studio Standby";
-
-          operationSubtitle.textContent = nextLecture
-            ? `Next lecture starts at ${nextLecture.displayStart}`
-            : "No pending lecture.";
-
-          bannerTitle.textContent = "STUDIO STANDBY";
-
-          bannerDescription.textContent = nextLecture
-            ? `Next: ${nextLecture.name} · ${nextLecture.displayStart}`
-            : "All operations synchronized.";
-        }
-
-        const actualCompleted = isTeachingDay ? completed : 0;
-
-        document.getElementById("completed-count").textContent =
-          `${String(actualCompleted).padStart(2, "0")} / 07`;
-
-        const progress = Math.round((actualCompleted / lectures.length) * 100);
-
-        document.getElementById("progress-percent").textContent =
-          `${progress}%`;
-
-        document.getElementById("progress-fill").style.width = `${progress}%`;
-
-        document.getElementById("today-status").textContent = isTeachingDay
-          ? `${actualCompleted} lectures completed today`
-          : "Teaching resumes Monday";
-
-        let nextClassForPanel = nextLecture;
-
-        if (liveLecture) {
-          const currentIndex = lectures.findIndex(
-            (lecture) => lecture.id === liveLecture.id,
-          );
-
-          nextClassForPanel = lectures[currentIndex + 1] || null;
-        }
-
-        if (!isTeachingDay) {
-          document.getElementById("next-class-name").textContent = "Python";
-
-          document.getElementById("next-class-time").textContent =
-            "Monday · 4:00 PM – 4:40 PM";
-
-          setCountdownToZero();
-        } else if (nextClassForPanel) {
-          document.getElementById("next-class-name").textContent =
-            nextClassForPanel.name;
-
-          document.getElementById("next-class-time").textContent =
-            `${nextClassForPanel.displayStart} – ${nextClassForPanel.displayEnd}`;
-
-          const difference =
-            timeToSeconds(nextClassForPanel.start) - currentSeconds;
-
-          updateCountdown(difference);
-        } else {
-          document.getElementById("next-class-name").textContent =
-            "Teaching Complete";
-
-          document.getElementById("next-class-time").textContent =
-            "Next cycle · 4:00 PM";
-
-          setCountdownToZero();
-        }
-
-        const counter = document.getElementById("banner-counter");
-
-        if (liveLecture) {
-          const remaining = timeToSeconds(liveLecture.end) - currentSeconds;
-
-          const minutes = Math.floor(remaining / 60);
-
-          const seconds = remaining % 60;
-
-          counter.textContent = `${minutes}m ${String(seconds).padStart(2, "0")}s LEFT`;
-        } else if (nextLecture && isTeachingDay) {
-          const difference = timeToSeconds(nextLecture.start) - currentSeconds;
-
-          const hours = Math.floor(difference / 3600);
-
-          const minutes = Math.floor((difference % 3600) / 60);
-
-          if (hours > 0) {
-            counter.textContent = `STARTS IN ${hours}h ${minutes}m`;
-          } else {
-            counter.textContent = `STARTS IN ${minutes}m`;
+      function findNextLecture(currentDay) {
+        const currentIndex = DAYS.indexOf(currentDay);
+        for (let step = 1; step <= 7; step++) {
+          const day = DAYS[(currentIndex + step) % 7];
+          if (academySchedule[day]?.length) {
+            const first = academySchedule[day][0];
+            return `${DAY_NAMES[day]} · ${formatTime(first.start)} · ${first.name}`;
           }
-        } else {
-          counter.textContent = "PKT LIVE";
         }
+        return "No upcoming lecture";
       }
 
-      /* ============================================
-         COUNTDOWN
-      ============================================ */
-
-      function updateCountdown(seconds) {
-        seconds = Math.max(0, seconds);
-
-        const hours = Math.floor(seconds / 3600);
-
-        const minutes = Math.floor((seconds % 3600) / 60);
-
-        const remainingSeconds = seconds % 60;
-
-        document.getElementById("countdown-hours").textContent = String(
-          hours,
-        ).padStart(2, "0");
-
-        document.getElementById("countdown-minutes").textContent = String(
-          minutes,
-        ).padStart(2, "0");
-
-        document.getElementById("countdown-seconds").textContent = String(
-          remainingSeconds,
-        ).padStart(2, "0");
+      function renderUniversityTable() {
+        const table = document.getElementById("universityTable");
+        table.innerHTML = `
+        <thead>
+          <tr>
+            ${DAYS.map((d) => `<th>${DAY_NAMES[d]}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            ${DAYS.map((day) => {
+              const items = universitySchedule[day];
+              if (!items.length)
+                return `<td class="off-cell">No University Class</td>`;
+              return `<td>${items.map((x) => `<span class="slot university"><strong>${x.name}</strong><span>${formatTime(x.start)} — ${formatTime(x.end)}</span></span>`).join("")}</td>`;
+            }).join("")}
+          </tr>
+        </tbody>`;
       }
 
-      function setCountdownToZero() {
-        document.getElementById("countdown-hours").textContent = "00";
+      function renderAcademyTable() {
+        const table = document.getElementById("academyTable");
+        let html = `
+        <thead>
+          <tr>
+            <th>Batch / Course</th>
+            ${DAYS.map((d) => `<th>${DAY_NAMES[d]}</th>`).join("")}
+            <th>Weekly Total</th>
+          </tr>
+        </thead><tbody>`;
 
-        document.getElementById("countdown-minutes").textContent = "00";
-
-        document.getElementById("countdown-seconds").textContent = "00";
-      }
-
-      /* ============================================
-         START SYSTEM
-      ============================================ */
-
-      function refreshSystem() {
-        updateDashboard();
-        renderTimeline();
-      }
-
-      refreshSystem();
-
-      setInterval(updateDashboard, 1000);
-
-      setInterval(renderTimeline, 30000);
-
-      /* ============================================
-         CUSTOM CURSOR
-      ============================================ */
-
-      const cursorDot = document.querySelector(".cursor-dot");
-
-      const cursorOutline = document.querySelector(".cursor-outline");
-
-      window.addEventListener("mousemove", (event) => {
-        cursorDot.style.left = `${event.clientX}px`;
-
-        cursorDot.style.top = `${event.clientY}px`;
-
-        cursorOutline.style.left = `${event.clientX}px`;
-
-        cursorOutline.style.top = `${event.clientY}px`;
-      });
-
-      document
-        .querySelectorAll("a, button, .lecture-content")
-        .forEach((element) => {
-          element.addEventListener("mouseenter", () => {
-            cursorOutline.style.width = "48px";
-
-            cursorOutline.style.height = "48px";
+        batchOrder.forEach((batch) => {
+          let weeklyMinutes = 0;
+          html += `<tr><th>${batch}</th>`;
+          DAYS.forEach((day) => {
+            const classes = academySchedule[day].filter(
+              (x) => x.name === batch,
+            );
+            if (!classes.length) {
+              const label =
+                day === "THU"
+                  ? "OFF"
+                  : day === "SAT" || day === "SUN"
+                    ? "WEEKEND OFF"
+                    : "—";
+              const cls =
+                day === "THU" || day === "SAT" || day === "SUN"
+                  ? "off-cell"
+                  : day === "FRI"
+                    ? "jumuah-cell"
+                    : "";
+              html += `<td class="${cls}">${label}</td>`;
+            } else {
+              classes.forEach(
+                (x) => (weeklyMinutes += durationMinutes(x.start, x.end)),
+              );
+              html += `<td class="${day === "FRI" ? "jumuah-cell" : ""}">${classes.map((x) => `<span class="slot"><strong>${formatTime(x.start)} — ${formatTime(x.end)}</strong><span>${durationMinutes(x.start, x.end)} min</span></span>`).join("")}</td>`;
+            }
           });
-
-          element.addEventListener("mouseleave", () => {
-            cursorOutline.style.width = "34px";
-
-            cursorOutline.style.height = "34px";
-          });
+          html += `<td><span class="slot"><strong>${formatDuration(weeklyMinutes)}</strong><span>${weeklyMinutes} min · ${weeklyMinutes * 60} sec</span></span></td></tr>`;
         });
+
+        table.innerHTML = html + `</tbody>`;
+      }
+
+      function renderHours() {
+        const totals = Object.fromEntries(batchOrder.map((x) => [x, 0]));
+        DAYS.forEach((day) =>
+          academySchedule[day].forEach((x) => {
+            totals[x.name] += durationMinutes(x.start, x.end);
+          }),
+        );
+
+        const grid = document.getElementById("hoursGrid");
+        grid.innerHTML = batchOrder
+          .map((name) => {
+            const min = totals[name];
+            const sessions = DAYS.reduce(
+              (sum, day) =>
+                sum +
+                academySchedule[day].filter((x) => x.name === name).length,
+              0,
+            );
+            return `
+          <div class="hours-card">
+            <div class="course">${name}</div>
+            <div class="total">${formatDuration(min)}</div>
+            <div class="details">${sessions} sessions / week<br>${min} minutes · ${min * 60} seconds</div>
+          </div>`;
+          })
+          .join("");
+
+        const grand = Object.values(totals).reduce((a, b) => a + b, 0);
+        document.getElementById("grandTotal").textContent =
+          formatDuration(grand);
+        document.getElementById("grandTotalDetail").textContent =
+          `${grand.toLocaleString()} minutes · ${(grand * 60).toLocaleString()} seconds`;
+      }
+
+      function setupTheme() {
+        const saved = localStorage.getItem("fds-theme");
+        if (saved === "light") document.body.classList.add("light");
+        const btn = document.getElementById("themeToggle");
+        const syncIcon = () =>
+          (btn.textContent = document.body.classList.contains("light")
+            ? "☾"
+            : "☀");
+        syncIcon();
+        btn.addEventListener("click", () => {
+          document.body.classList.toggle("light");
+          localStorage.setItem(
+            "fds-theme",
+            document.body.classList.contains("light") ? "light" : "dark",
+          );
+          syncIcon();
+        });
+      }
+
+      setupTheme();
+      renderUniversityTable();
+      renderAcademyTable();
+      renderHours();
+      renderClock();
+      renderDaily();
+      setInterval(renderClock, 1000);
+      setInterval(renderDaily, 30000);
     </script>
   </body>
 </html>
